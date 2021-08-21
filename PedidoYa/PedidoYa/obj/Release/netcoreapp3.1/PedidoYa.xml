@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PedidoYa</name>
+    </assembly>
+    <members>
+        <member name="M:PedidoYa.Controllers.AutoController.GetAllAutos">
+            <summary>
+            Traer todos los Autos 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.AutoController.GetAllAutosForId(System.Int32)">
+            <summary>
+            Traer el auto con id igual a:
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.AutoController.CreateAuto(PedidoYa.Model.Auto)">
+            <summary>
+            Crear un nuevo Auto
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.AutoController.UpdateAuto(PedidoYa.Model.Auto)">
+            <summary>
+            Actualizar el Auto con id:
+            </summary>
+            <param name="auto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.AutoController.DeleteAuto(System.Int32)">
+            <summary>
+            Borrar el Auto con id:
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

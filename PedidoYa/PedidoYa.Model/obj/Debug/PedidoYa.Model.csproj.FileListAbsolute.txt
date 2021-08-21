@@ -1,0 +1,10 @@
+C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa.Model\bin\Debug\PedidoYa.Model.dll
+C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa.Model\bin\Debug\PedidoYa.Model.pdb
+C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa.Model\bin\Debug\Microsoft.Analytics.Interfaces.dll
+C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa.Model\bin\Debug\Microsoft.Analytics.Interfaces.Streaming.dll
+C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa.Model\bin\Debug\Microsoft.Analytics.Types.dll
+C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa.Model\obj\Debug\PedidoYa.Model.csproj.AssemblyReference.cache
+C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa.Model\obj\Debug\PedidoYa.Model.csproj.CoreCompileInputs.cache
+C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa.Model\obj\Debug\PedidoYa.Model.csproj.CopyComplete
+C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa.Model\obj\Debug\PedidoYa.Model.dll
+C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa.Model\obj\Debug\PedidoYa.Model.pdb

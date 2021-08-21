@@ -1,0 +1,2 @@
+C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa.Data\obj\Debug\PedidoYa.Data.csproj.AssemblyReference.cache
+C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa.Data\obj\Debug\PedidoYa.Data.csproj.CoreCompileInputs.cache
