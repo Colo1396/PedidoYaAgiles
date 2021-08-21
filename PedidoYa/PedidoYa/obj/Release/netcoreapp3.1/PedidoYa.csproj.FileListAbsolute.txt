@@ -45,3 +45,4 @@ C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa\obj\Release\ne
 C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa\obj\Release\netcoreapp3.1\PedidoYa.xml
 C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa\obj\Release\netcoreapp3.1\PedidoYa.pdb
 C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa\obj\Release\netcoreapp3.1\PedidoYa.genruntimeconfig.cache
+C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa\obj\Release\netcoreapp3.1\PedidoYa.MvcApplicationPartsAssemblyInfo.cs

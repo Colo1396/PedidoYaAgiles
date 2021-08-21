@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lwwhmtyN/t/5REl2LN8HVhH1CLUixFijFnXahlw/Jrc8LnVAHli+nyQdbMFVyCbPl3acgD3YeIR2rFPFK0OVjA==",
+  "dgSpecHash": "Sk0Eloxd8ZKj2izj3XsTtNgi+N4fOLM45JVEoPOmdYEHzol6rTtpOFPan8RZvgqaTu+NmzMBpHBBsUx2MFQBtg==",
   "success": true,
   "projectFilePath": "C:\\Users\\nazar\\Documents\\GitHub\\PedidosYaSantos\\PedidoYa\\PedidoYa\\PedidoYa.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\nazar\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
     "C:\\Users\\nazar\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\nazar\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\nazar\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.2\\microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512",
     "C:\\Users\\nazar\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\nazar\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\nazar\\.nuget\\packages\\mysql.data\\8.0.26\\mysql.data.8.0.26.nupkg.sha512",
