@@ -22,7 +22,7 @@ namespace PedidoYa.Controllers
 
 
         /// <summary>
-        /// Traer todos los Autos a ver si se actualizo solo prueba 2
+        /// Traer todos los Autos
         /// </summary>
         /// <returns></returns>
         [HttpGet]
