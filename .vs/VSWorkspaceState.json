@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\PedidoYa",
+    "\\PedidoYa\\PedidoYa.Model"
   ],
-  "SelectedNode": "\\C:\\Users\\nazar\\Documents\\GitHub\\PedidosYaSantos",
+  "SelectedNode": "\\PedidoYa\\PedidoYa.sln",
   "PreviewInSolutionExplorer": false
 }
