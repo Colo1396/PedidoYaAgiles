@@ -35,7 +35,7 @@ namespace PedidoYa
             services.AddScoped<IAutoRepository, AutoRepository>();
 
             services.AddControllers();
-            services.AddControllersWithViews();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PedidoYa", Version = "v1" });

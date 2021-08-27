@@ -37,5 +37,38 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:PedidoYa.Controllers.ProviniciaController.GetAllProvincias">
+            <summary>
+            Traer todas las Provincias
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ProviniciaController.GetProvinciaForId(System.Int32)">
+            <summary>
+            Traer la provincia con id igual a:
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ProviniciaController.CreateAuto(PedidoYa.Model.Provincia)">
+            <summary>
+            Crear un nuevo Auto
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ProviniciaController.UpdateAuto(PedidoYa.Model.Provincia)">
+            <summary>
+            Actualizar el Auto con id:
+            </summary>
+            <param name="provincia"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ProviniciaController.DeleteAuto(System.Int32)">
+            <summary>
+            Borrar el Auto con id:
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

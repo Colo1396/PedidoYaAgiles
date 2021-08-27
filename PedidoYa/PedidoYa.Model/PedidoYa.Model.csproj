@@ -89,6 +89,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auto.cs" />
+    <Compile Include="IProvinciaRepositories.cs" />
+    <Compile Include="Provincia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
