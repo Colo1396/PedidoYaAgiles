@@ -37,35 +37,35 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:PedidoYa.Controllers.ProviniciaController.GetAllProvincias">
+        <member name="M:PedidoYa.Controllers.ProvinciaController.GetAllProvincias">
             <summary>
             Traer todas las Provincias
             </summary>
             <returns></returns>
         </member>
-        <member name="M:PedidoYa.Controllers.ProviniciaController.GetProvinciaForId(System.Int32)">
+        <member name="M:PedidoYa.Controllers.ProvinciaController.GetProvinciaForId(System.Int32)">
             <summary>
             Traer la provincia con id igual a:
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:PedidoYa.Controllers.ProviniciaController.CreateAuto(PedidoYa.Model.Provincia)">
+        <member name="M:PedidoYa.Controllers.ProvinciaController.CreateProvincia(PedidoYa.Model.Provincia)">
             <summary>
-            Crear un nuevo Auto
+            Crear una nueva provincia
             </summary>
             <returns></returns>
         </member>
-        <member name="M:PedidoYa.Controllers.ProviniciaController.UpdateAuto(PedidoYa.Model.Provincia)">
+        <member name="M:PedidoYa.Controllers.ProvinciaController.UpdateProvincia(PedidoYa.Model.Provincia)">
             <summary>
-            Actualizar el Auto con id:
+            Actualizar la provincia con id:
             </summary>
             <param name="provincia"></param>
             <returns></returns>
         </member>
-        <member name="M:PedidoYa.Controllers.ProviniciaController.DeleteAuto(System.Int32)">
+        <member name="M:PedidoYa.Controllers.ProvinciaController.DeleteProvincia(System.Int32)">
             <summary>
-            Borrar el Auto con id:
+            Borrar la provincia con id:
             </summary>
             <param name="id"></param>
             <returns></returns>

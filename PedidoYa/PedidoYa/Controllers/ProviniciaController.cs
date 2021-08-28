@@ -11,11 +11,11 @@ namespace PedidoYa.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProviniciaController : ControllerBase
+    public class ProvinciaController : ControllerBase
     {
         private readonly IProvinciaRepository _provinciaRepository;
 
-        public ProviniciaController(IProvinciaRepository provinciaRepository)
+        public ProvinciaController(IProvinciaRepository provinciaRepository)
         {
             _provinciaRepository = provinciaRepository;
         }
@@ -47,14 +47,14 @@ namespace PedidoYa.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> CreateAuto([FromBody] Provincia provincia)
+        public async Task<IActionResult> CreateProvincia([FromBody] Provincia provincia)
         {
             if (provincia == null)
                 return BadRequest();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var created = await _provinciaRepository.InsertAuto(provincia);
+            var created = await _provinciaRepository.InsertProvincia(provincia);
 
             return Created("created", created);
         }
@@ -66,14 +66,14 @@ namespace PedidoYa.Controllers
         /// <param name="provincia"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<IActionResult> UpdateAuto([FromBody] Provincia provincia)
+        public async Task<IActionResult> UpdateProvincia([FromBody] Provincia provincia)
         {
             if (provincia == null)
                 return BadRequest();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            await _provinciaRepository.UpdatetAuto(provincia);
+            await _provinciaRepository.UpdatetProvincia(provincia);
 
             return NoContent();
         }
@@ -84,9 +84,9 @@ namespace PedidoYa.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAuto(int id)
+        public async Task<IActionResult> DeleteProvincia(int id)
         {
-            await _provinciaRepository.DeleteAuto(new Provincia() { idProvinicia = id });
+            await _provinciaRepository.DeleteProvincia(new Provincia() { idProvincia = id });
 
             return NoContent();
         }

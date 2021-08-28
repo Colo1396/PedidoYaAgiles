@@ -8,7 +8,7 @@ namespace PedidoYa.Model
 {
     public class Provincia
     {
-        public int idProvinicia { get; set; }
+        public int idProvincia { get; set; }
         public string nombre { get; set; }
         
     }

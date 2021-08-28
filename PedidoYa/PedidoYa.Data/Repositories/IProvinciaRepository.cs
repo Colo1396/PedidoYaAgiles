@@ -11,8 +11,8 @@ namespace PedidoYa.Data.Repositories
     {
         Task<IEnumerable<Provincia>> GetAllProvincias();
         Task<Provincia> GetProvincia(int idProvincia);
-        Task<bool> InsertAuto(Provincia provincia);
-        Task<bool> UpdatetAuto(Provincia provincia);
-        Task<bool> DeleteAuto(Provincia provincia);
+        Task<bool> InsertProvincia(Provincia provincia);
+        Task<bool> UpdatetProvincia(Provincia provincia);
+        Task<bool> DeleteProvincia(Provincia provincia);
     }
 }
