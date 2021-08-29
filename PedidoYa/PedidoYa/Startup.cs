@@ -34,6 +34,9 @@ namespace PedidoYa
 
             services.AddScoped<IAutoRepository, AutoRepository>();
             services.AddScoped<IProvinciaRepository, ProvinciaRepository>();
+            services.AddScoped<ILocalidadRepository, LocalidadRepository>();
+
+
 
             services.AddControllers();
 
