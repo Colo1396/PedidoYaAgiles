@@ -27,5 +27,3 @@ C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa\obj\Debug\netc
 C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa\obj\Debug\netcoreapp3.1\PedidoYa.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa\obj\Debug\netcoreapp3.1\PedidoYa.dll
 C:\Users\nazar\Documents\GitHub\PedidosYaSantos\PedidoYa\PedidoYa\obj\Debug\netcoreapp3.1\PedidoYa.pdb
-C:\Users\Nicolas\Source\Repos\PedidosYaSantos\PedidoYa\PedidoYa\obj\Debug\netcoreapp3.1\PedidoYa.dll
-C:\Users\Nicolas\Source\Repos\PedidosYaSantos\PedidoYa\PedidoYa\obj\Debug\netcoreapp3.1\PedidoYa.pdb
