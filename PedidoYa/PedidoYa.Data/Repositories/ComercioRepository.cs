@@ -44,12 +44,21 @@ namespace PedidoYa.Data.Repositories
 
             return await db.QueryAsync<Comercio>(sql, new { });
         }
+        public async Task<IEnumerable<Comercio>> GetAllComerciosXLocalidad(string localidad)
+        {
+            var db = dbConnection();
+
+            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo from comercio
+                        where localidad = @Localidad";
+
+            return await db.QueryAsync<Comercio>(sql, new { Localidad = localidad });
+        }
 
         public async Task<Comercio> GetComercioForId(int idComercio)
         {
             var db = dbConnection();
 
-            var sql = @"idComercio, nombre, direccion, localidad, telefono, calificacion, logo from comercio
+            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo from comercio
                         where idComercio = @IdComercio";
 
             return await db.QueryFirstOrDefaultAsync<Comercio>(sql, new { IdComercio = idComercio });
@@ -83,13 +92,6 @@ namespace PedidoYa.Data.Repositories
             return result > 0;
         }
 
-        public async Task<IEnumerable<Comercio>> GetAllComerciosXLocalidad(string localidad)
-        {
-            var db = dbConnection();
 
-            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo from comercio where localidad like '%@Localidad%')";
-
-            return await db.QueryAsync<Comercio>(sql, new { Localidad = localidad });
-        }
     }
 }

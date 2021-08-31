@@ -20,17 +20,6 @@ namespace PedidoYa.Controllers
             _productoRepository = productoRepository;
         }
 
-
-        /*
-         * Task<IEnumerable<Producto>> GetAllProductos();
-         Task<Producto> GetProductoForId(int idProducto);
-         Task<bool> InsertProducto(Producto producto);
-         Task<bool> InsertProducto(Producto producto, int idComercio);
-         Task<bool> UpdatetProducto(Producto producto);
-         Task<bool> UpdatetProducto(Producto producto, int idComercio);
-         Task<bool> DeleteProducto(Producto producto);
-         Task<IEnumerable<Producto>> GetAllProductosXComercio(int idComercio);*/
-
         /// <summary>
         /// Traer todos los Producto
         /// </summary>
@@ -41,30 +30,30 @@ namespace PedidoYa.Controllers
             return Ok(await _productoRepository.GetAllProductos());
         }
 
-        /// <summary>
-        /// Traer todos los Producto
-        /// </summary>
-        /// <param name="idComercio"></param>
-        /// <returns></returns>
-        [HttpGet]
-        public async Task<IActionResult> GetAllProductosXComercio(int idComercio)
-        {
-            return Ok(await _productoRepository.GetAllProductosXComercio(idComercio));
-        }
-
-
 
         /// <summary>
         /// Traer el Producto con id igual a:
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("{id}")]
+        [HttpGet("porid/{id}")]
         public async Task<IActionResult> GetProductoForId(int id)
         {
             return Ok(await _productoRepository.GetProductoForId(id));
         }
 
+        /// <summary>
+        /// Traer todos los Producto
+        /// </summary>
+        /// <param name="idComercio"></param>
+        /// <returns></returns>
+        [HttpGet("comercio/{idComercio}")]
+        public async Task<IActionResult> GetAllProductosXComercio(int idComercio)
+        {
+            return Ok(await _productoRepository.GetAllProductosXComercio(idComercio));
+        }
+
+        /* --REVISAR
         /// <summary>
         /// Crear un nuevo Producto
         /// </summary>
@@ -80,9 +69,9 @@ namespace PedidoYa.Controllers
             var created = await _productoRepository.InsertProducto(producto);
 
             return Created("created", created);
-        }
+        }*/
 
-
+        /* --REVISAR
         /// <summary>
         /// Crear un nuevo Producto
         /// </summary>
@@ -90,9 +79,9 @@ namespace PedidoYa.Controllers
         /// <param name="idComercio"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> CreateProductoConIdComercio([FromBody] Producto producto, int idComercio)
+        public async Task<IActionResult> CreateProductoConIdComercio(int idComercio,[FromBody] Producto producto)
         {
-            if (producto == null)
+            if (producto == null )
                 return BadRequest();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -100,7 +89,7 @@ namespace PedidoYa.Controllers
             var created = await _productoRepository.InsertProducto(producto, idComercio);
 
             return Created("created", created);
-        }
+        }*/
 
 
         /// <summary>
@@ -121,6 +110,7 @@ namespace PedidoYa.Controllers
             return NoContent();
         }
 
+        /* --REVISAR
         /// <summary>
         /// Actualizar el Producto con id:
         /// </summary>
@@ -138,7 +128,7 @@ namespace PedidoYa.Controllers
             await _productoRepository.UpdatetProducto(producto, idComercio);
 
             return NoContent();
-        }
+        }*/
 
         /// <summary>
         /// Borrar el Producto con id:

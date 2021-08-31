@@ -35,7 +35,7 @@ namespace PedidoYa.Controllers
         /// Traer todos los Comercio por localidad
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet("buscar/{localidad}")]
         public async Task<IActionResult> GetAllComerciosXLocalidad(string localidad)
         {
             return Ok(await _comercioRepository.GetAllComerciosXLocalidad(localidad));
