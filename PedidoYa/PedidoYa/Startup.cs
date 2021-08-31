@@ -33,6 +33,9 @@ namespace PedidoYa
             services.AddSingleton(mySQLConnectionConfig);
 
             services.AddScoped<IAutoRepository, AutoRepository>();
+            services.AddScoped<IComercioRepository, ComercioRepository>();
+            services.AddScoped<IProductoRepository, ProductoRepository>();
+
 
             services.AddControllers();
 

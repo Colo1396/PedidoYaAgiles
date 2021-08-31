@@ -37,5 +37,101 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:PedidoYa.Controllers.ComercioController.GetAllComercios">
+            <summary>
+            Traer todos los Comercio
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ComercioController.GetAllComerciosXLocalidad(System.String)">
+            <summary>
+            Traer todos los Comercio por localidad
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ComercioController.GetComercioForId(System.Int32)">
+            <summary>
+            Traer el Comercio con id igual a:
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ComercioController.CreateComercio(PedidoYa.Model.Comercio)">
+            <summary>
+            Crear un nuevo Comercio
+            </summary>
+            <param name="comercio"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ComercioController.UpdateComercio(PedidoYa.Model.Comercio)">
+            <summary>
+            Actualizar el Comercio con id:
+            </summary>
+            <param name="comercio"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ComercioController.DeleteComercio(System.Int32)">
+            <summary>
+            Borrar el Comercio con id:
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ProductoController.GetAllProductos">
+            <summary>
+            Traer todos los Producto
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ProductoController.GetAllProductosXComercio(System.Int32)">
+            <summary>
+            Traer todos los Producto
+            </summary>
+            <param name="idComercio"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ProductoController.GetProductoForId(System.Int32)">
+            <summary>
+            Traer el Producto con id igual a:
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ProductoController.CreateProducto(PedidoYa.Model.Producto)">
+            <summary>
+            Crear un nuevo Producto
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ProductoController.CreateProductoConIdComercio(PedidoYa.Model.Producto,System.Int32)">
+            <summary>
+            Crear un nuevo Producto
+            </summary>
+            <param name="producto"></param>
+            <param name="idComercio"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ProductoController.UpdateProducto(PedidoYa.Model.Producto)">
+            <summary>
+            Actualizar el Producto con id:
+            </summary>
+            <param name="producto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ProductoController.UpdateProducto(PedidoYa.Model.Producto,System.Int32)">
+            <summary>
+            Actualizar el Producto con id:
+            </summary>
+            <param name="producto"></param>
+            <param name="idComercio"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ProductoController.DeleteProducto(System.Int32)">
+            <summary>
+            Borrar el Producto con id:
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
