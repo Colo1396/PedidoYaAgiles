@@ -25,9 +25,9 @@ namespace PedidoYa.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IActionResult> GetAllProductos()
+        public List<Producto> GetAllProductos()
         {
-            return Ok(await _productoRepository.GetAllProductos());
+            return _productoRepository.GetAllProductos();
         }
 
 

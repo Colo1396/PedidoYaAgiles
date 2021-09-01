@@ -36,13 +36,13 @@ namespace PedidoYa.Data.Repositories
             return result > 0;
         }
 
-        public async Task<IEnumerable<Producto>> GetAllProductos()
+        public List<Producto> GetAllProductos()
         {
             var db = dbConnection();
 
             var sql = @"select idProducto, nombre, descripcion, foto, precio, visible, idComercio from producto";
 
-            return await db.QueryAsync<Producto>(sql, new { });
+            return db.Query<Producto>(sql, new { }).ToList();
         }
 
         public async Task<IEnumerable<Producto>> GetAllProductosXComercio(int idComercio)
@@ -71,7 +71,7 @@ namespace PedidoYa.Data.Repositories
             var sql = @"insert into producto (nombre, descripcion, foto, precio, visible, idComercio) 
                         values (@Nombre,@Descripcion,@Foto,@Precio,@Visible, @IdComercio)";
 
-            var result = await db.ExecuteAsync(sql, new { producto.nombre, producto.descripcion, producto.foto, producto.precio, producto.visible, @IdComercio= idComercio });
+            var result = await db.ExecuteAsync(sql, new { producto.nombre, producto.descripcion, producto.foto, producto.precio, producto.visible, IdComercio= idComercio });
             return result > 0;
         }
 

@@ -9,7 +9,7 @@ namespace PedidoYa.Data.Repositories
 {
     public interface IProductoRepository
     {
-        Task<IEnumerable<Producto>> GetAllProductos();
+        List<Producto> GetAllProductos();
         Task<Producto> GetProductoForId(int idProducto);
         Task<bool> InsertProducto(Producto producto);
         Task<bool> InsertProducto(Producto producto,int idComercio);
