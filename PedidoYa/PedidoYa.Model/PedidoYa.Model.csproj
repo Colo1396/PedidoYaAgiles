@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="Auto.cs" />
     <Compile Include="Comercio.cs" />
+    <Compile Include="Localidad.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
