@@ -97,7 +97,9 @@
     <Compile Include="Repositories\ComercioRepository.cs" />
     <Compile Include="Repositories\IAutoRepository.cs" />
     <Compile Include="Repositories\IComercioRepository.cs" />
+    <Compile Include="Repositories\ILocalidadRepository.cs" />
     <Compile Include="Repositories\IProductoRepository.cs" />
+    <Compile Include="Repositories\LocalidadRepository.cs" />
     <Compile Include="Repositories\ProductoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
