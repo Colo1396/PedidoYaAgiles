@@ -35,7 +35,15 @@ namespace PedidoYa
             services.AddScoped<IAutoRepository, AutoRepository>();
             services.AddScoped<IComercioRepository, ComercioRepository>();
             services.AddScoped<IProductoRepository, ProductoRepository>();
-
+            services.AddScoped<ILocalidadRepository, LocalidadRepository>();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "MyAllowSpecificOrigins",
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("*").AllowAnyHeader();
+                                  });
+            });
 
             services.AddControllers();
 
@@ -59,7 +67,11 @@ namespace PedidoYa
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors("MyAllowSpecificOrigins");
+
             app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
 
             app.UseRouting();
 
