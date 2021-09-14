@@ -22,7 +22,7 @@ namespace PedidoYa.Data.Repositories
         {
             return new MySqlConnection(_connectionString.ConnectionString);
         }
-
+        //-------------------------------------------------------------------------------------------------------------------
         //Metodos
         public async Task<bool> DeleteComercio(Comercio comercio)
         {
@@ -35,7 +35,7 @@ namespace PedidoYa.Data.Repositories
             var result = await db.ExecuteAsync(sql, new { IdComercio = comercio.idComercio });
             return result > 0;
         }
-
+        //-------------------------------------------------------------------------------------------------------------------
         public async Task<IEnumerable<Comercio>> GetAllComercios()
         {
             var db = dbConnection();
@@ -44,6 +44,7 @@ namespace PedidoYa.Data.Repositories
 
             return await db.QueryAsync<Comercio>(sql, new { });
         }
+        //-------------------------------------------------------------------------------------------------------------------
         public async Task<IEnumerable<Comercio>> GetAllComerciosXLocalidad(string localidad)
         {
             var db = dbConnection();
@@ -53,7 +54,7 @@ namespace PedidoYa.Data.Repositories
 
             return await db.QueryAsync<Comercio>(sql, new { Localidad = localidad });
         }
-
+        //-------------------------------------------------------------------------------------------------------------------
         public async Task<Comercio> GetComercioForId(int idComercio)
         {
             var db = dbConnection();
@@ -63,7 +64,7 @@ namespace PedidoYa.Data.Repositories
 
             return await db.QueryFirstOrDefaultAsync<Comercio>(sql, new { IdComercio = idComercio });
         }
-
+        //-------------------------------------------------------------------------------------------------------------------
         public async Task<bool> InsertComercio(Comercio comercio)
         {
             var db = dbConnection();
@@ -74,7 +75,7 @@ namespace PedidoYa.Data.Repositories
             var result = await db.ExecuteAsync(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo,comercio.descripcion });
             return result > 0;
         }
-
+        //-------------------------------------------------------------------------------------------------------------------
         public async Task<bool> UpdatetComercio(Comercio comercio)
         {
             var db = dbConnection();
@@ -92,7 +93,20 @@ namespace PedidoYa.Data.Repositories
             var result = await db.ExecuteAsync(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo, comercio.idComercio });
             return result > 0;
         }
+        //-------------------------------------------------------------------------------------------------------------------
+        public async Task<Comercio> GetComercioXIdUsuario(int idUsuario)
+        {
+            var db = dbConnection();
 
+            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion from comercio
+                        where idUsuario = @IdUsuario";
 
+           /* var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion from comercio c
+                            inner join usuario u  on u.id = c.idUsuario                      
+                        where u.id = @IdUsuario";*/
+
+            return await db.QueryFirstOrDefaultAsync<Comercio>(sql, new { IdUsuario = idUsuario });
+            
+        }
     }
 }
