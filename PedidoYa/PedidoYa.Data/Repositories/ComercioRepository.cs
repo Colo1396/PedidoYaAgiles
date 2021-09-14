@@ -69,10 +69,10 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"insert into comercio (nombre, direccion, localidad, telefono, calificacion, logo,descripcion) 
-                        values (@Nombre,@Direccion,@Localidad,@Telefono,@Calificacion,@Logo,@Descripcion)";
+            var sql = @"insert into comercio (nombre, direccion, localidad, telefono, calificacion, logo,descripcion,idUsuario) 
+                        values (@Nombre,@Direccion,@Localidad,@Telefono,@Calificacion,@Logo,@Descripcion,@IdUsuario)";
 
-            var result = await db.ExecuteAsync(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo,comercio.descripcion });
+            var result = await db.ExecuteAsync(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo,comercio.descripcion, IdUsuario=comercio.usuario.id });
             return result > 0;
         }
         //-------------------------------------------------------------------------------------------------------------------
@@ -90,7 +90,7 @@ namespace PedidoYa.Data.Repositories
                              descripcion=@Descripcion
                         where idComercio = @IdComercio";
 
-            var result = await db.ExecuteAsync(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo, comercio.idComercio });
+            var result = await db.ExecuteAsync(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo, comercio.descripcion ,comercio.idComercio });
             return result > 0;
         }
         //-------------------------------------------------------------------------------------------------------------------

@@ -14,10 +14,12 @@ namespace PedidoYa.Controllers
     public class ComercioController : ControllerBase
     {
         private readonly IComercioRepository _comercioRepository;
+        private readonly IUsuarioRepository _usuarioRepository;
 
-        public ComercioController(IComercioRepository comercioRepository)
+        public ComercioController(IComercioRepository comercioRepository,IUsuarioRepository usuarioRepository)
         {
             _comercioRepository = comercioRepository;
+            _usuarioRepository = usuarioRepository;
         }
 
         //-------------------------------------------------------------------------------------------------------------------
@@ -48,7 +50,10 @@ namespace PedidoYa.Controllers
         [HttpGet("buscarXIdUsuario/{idUsuario}")]
         public async Task<IActionResult> GetComercioXIdUsuario(int idUsuario)
         {
-            return Ok(await _comercioRepository.GetComercioXIdUsuario(idUsuario));
+           Comercio comercio = await _comercioRepository.GetComercioXIdUsuario(idUsuario);
+           comercio.usuario=await _usuarioRepository.GetUsuarioForId(idUsuario);
+            return Ok(comercio);
+
         }
         //-------------------------------------------------------------------------------------------------------------------
         /// <summary>
@@ -70,14 +75,47 @@ namespace PedidoYa.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateComercio([FromBody] Comercio comercio)
         {
+            
+            
             if (comercio == null)
                 return BadRequest();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            if (comercio.logo == null || comercio.logo == "")
+                comercio.logo = "https://dry-thicket-39505.herokuapp.com/img/comercio/default.png";
+
             var created = await _comercioRepository.InsertComercio(comercio);
 
             return Created("created", created);
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------
+        /// <summary>
+        /// Crear un nuevo Comercio
+        /// </summary>
+        /// <param name="comercio"></param>
+        /// <returns></returns>
+        [HttpPost("ComercioAndUsuario")]
+        public async Task<IActionResult> CreateComercioAndUsuario([FromBody] Comercio comercio)
+        {
+            if (comercio == null)
+                return BadRequest();
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            if (comercio.usuario == null)
+                return BadRequest();
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            if (comercio.logo == null || comercio.logo == "")
+                comercio.logo = "https://dry-thicket-39505.herokuapp.com/img/comercio/default.png";
+
+            if (await _comercioRepository.InsertComercio(comercio)==true && await _usuarioRepository.InsertUsuario(comercio.usuario)==true)
+                return Created("created", true);
+            else
+                return Created("created", false);
         }
         //-------------------------------------------------------------------------------------------------------------------
 
