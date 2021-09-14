@@ -40,7 +40,7 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo from comercio";
+            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion from comercio";
 
             return await db.QueryAsync<Comercio>(sql, new { });
         }
@@ -48,7 +48,7 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo from comercio
+            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion from comercio
                         where localidad = @Localidad";
 
             return await db.QueryAsync<Comercio>(sql, new { Localidad = localidad });
@@ -58,7 +58,7 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo from comercio
+            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion from comercio
                         where idComercio = @IdComercio";
 
             return await db.QueryFirstOrDefaultAsync<Comercio>(sql, new { IdComercio = idComercio });
@@ -68,10 +68,10 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"insert into comercio (nombre, direccion, localidad, telefono, calificacion, logo) 
-                        values (@Nombre,@Direccion,@Localidad,@Telefono,@Calificacion,@Logo)";
+            var sql = @"insert into comercio (nombre, direccion, localidad, telefono, calificacion, logo,descripcion) 
+                        values (@Nombre,@Direccion,@Localidad,@Telefono,@Calificacion,@Logo,@Descripcion)";
 
-            var result = await db.ExecuteAsync(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo });
+            var result = await db.ExecuteAsync(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo,comercio.descripcion });
             return result > 0;
         }
 
@@ -85,7 +85,8 @@ namespace PedidoYa.Data.Repositories
                              localidad=@Localidad,
                              telefono=@Telefono,
                              calificacion=@Calificacion,
-                             logo=@Logo
+                             logo=@Logo,
+                             descripcion=@Descripcion
                         where idComercio = @IdComercio";
 
             var result = await db.ExecuteAsync(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo, comercio.idComercio });
