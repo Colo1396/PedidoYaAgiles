@@ -16,5 +16,7 @@ namespace PedidoYa.Model
         public string telefono { get; set; }
         public double calificacion { get; set; }
         public string logo { get; set; }
+        public string descripcion { get; set; }
+        public Usuario usuario { get; set; }
     }
 }
