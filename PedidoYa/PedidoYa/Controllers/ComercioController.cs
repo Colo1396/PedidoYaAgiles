@@ -20,7 +20,7 @@ namespace PedidoYa.Controllers
             _comercioRepository = comercioRepository;
         }
 
-
+        //-------------------------------------------------------------------------------------------------------------------
         /// <summary>
         /// Traer todos los Comercio
         /// </summary>
@@ -30,7 +30,7 @@ namespace PedidoYa.Controllers
         {
             return Ok(await _comercioRepository.GetAllComercios());
         }
-
+        //-------------------------------------------------------------------------------------------------------------------
         /// <summary>
         /// Traer todos los Comercio por localidad
         /// </summary>
@@ -40,8 +40,17 @@ namespace PedidoYa.Controllers
         {
             return Ok(await _comercioRepository.GetAllComerciosXLocalidad(localidad));
         }
-
-
+        //-------------------------------------------------------------------------------------------------------------------
+        /// <summary>
+        /// Traer todos los Comercio por id Usuario
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("buscarXIdUsuario/{idUsuario}")]
+        public async Task<IActionResult> GetComercioXIdUsuario(int idUsuario)
+        {
+            return Ok(await _comercioRepository.GetComercioXIdUsuario(idUsuario));
+        }
+        //-------------------------------------------------------------------------------------------------------------------
         /// <summary>
         /// Traer el Comercio con id igual a:
         /// </summary>
@@ -52,7 +61,7 @@ namespace PedidoYa.Controllers
         {
             return Ok(await _comercioRepository.GetComercioForId(id));
         }
-
+        //-------------------------------------------------------------------------------------------------------------------
         /// <summary>
         /// Crear un nuevo Comercio
         /// </summary>
@@ -70,7 +79,7 @@ namespace PedidoYa.Controllers
 
             return Created("created", created);
         }
-
+        //-------------------------------------------------------------------------------------------------------------------
 
         /// <summary>
         /// Actualizar el Comercio con id:
@@ -89,7 +98,7 @@ namespace PedidoYa.Controllers
 
             return NoContent();
         }
-
+        //-------------------------------------------------------------------------------------------------------------------
         /// <summary>
         /// Borrar el Comercio con id:
         /// </summary>
@@ -102,7 +111,7 @@ namespace PedidoYa.Controllers
 
             return NoContent();
         }
-
+        //-------------------------------------------------------------------------------------------------------------------
 
     }
 }

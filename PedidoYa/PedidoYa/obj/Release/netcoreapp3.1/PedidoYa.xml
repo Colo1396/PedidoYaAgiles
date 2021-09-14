@@ -49,6 +49,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:PedidoYa.Controllers.ComercioController.GetComercioXIdUsuario(System.Int32)">
+            <summary>
+            Traer todos los Comercio por id Usuario
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:PedidoYa.Controllers.ComercioController.GetComercioForId(System.Int32)">
             <summary>
             Traer el Comercio con id igual a:
