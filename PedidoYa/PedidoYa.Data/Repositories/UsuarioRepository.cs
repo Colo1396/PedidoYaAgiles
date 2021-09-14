@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Dapper;
+using MySql.Data.MySqlClient;
 using PedidoYa.Model;
 using System;
 using System.Collections.Generic;
@@ -21,29 +22,60 @@ namespace PedidoYa.Data.Repositories
             return new MySqlConnection(_connectionString.ConnectionString);
         }
 
-        public Task<IEnumerable<Usuario>> GetAllUsuario()
+        public async Task<IEnumerable<Usuario>> GetAllUsuario()
         {
-            throw new NotImplementedException();
+            var db = dbConnection();
+
+            var sql = @"select id, username, password from usuario";
+
+            return await db.QueryAsync<Usuario>(sql, new { });
         }
 
-        public Task<Usuario> GetUsuarioForId(int idUsuario)
+        public async Task<Usuario> GetUsuarioForId(int idUsuario)
         {
-            throw new NotImplementedException();
+            var db = dbConnection();
+
+            var sql = @"select id, username, password from usuario
+                        where id = @Id";
+
+            return await db.QueryFirstOrDefaultAsync<Usuario>(sql, new { Id = idUsuario });
         }
 
-        public Task<bool> InsertUsuario(Usuario usuario)
+        public async Task<bool> InsertUsuario(Usuario usuario)
         {
-            throw new NotImplementedException();
+            var db = dbConnection();
+
+            var sql = @"insert into usuario (username, password) 
+                        values (@Username,@Password)";
+
+            var result = await db.ExecuteAsync(sql, new { usuario.username, usuario.password });
+            return result > 0;
         }
 
-        public Task<bool> UpdatetUsuario(Usuario usuario)
+        public async Task<bool> UpdatetUsuario(Usuario usuario)
         {
-            throw new NotImplementedException();
-        }
-        public Task<bool> DeleteUsuario(Usuario usuario)
-        {
-            throw new NotImplementedException();
+            var db = dbConnection();
+
+            var sql = @"update usuario 
+                             set username= @Username,
+                             password= @Password
+                        where id = @Id";
+
+            var result = await db.ExecuteAsync(sql, new { usuario.username, usuario.password, usuario.id });
+            return result > 0;
         }
 
+        public async Task<bool> DeleteUsuario(Usuario usuario)
+        {
+            var db = dbConnection();
+
+            var sql = @"Delete
+                        from usuario 
+                        where id = @Id";
+
+            var result = await db.ExecuteAsync(sql, new { Id = usuario.id });
+            return result > 0;
+        }
     }
+
 }

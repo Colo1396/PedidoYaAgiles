@@ -99,8 +99,10 @@
     <Compile Include="Repositories\IComercioRepository.cs" />
     <Compile Include="Repositories\ILocalidadRepository.cs" />
     <Compile Include="Repositories\IProductoRepository.cs" />
+    <Compile Include="Repositories\IUsuarioRepository.cs" />
     <Compile Include="Repositories\LocalidadRepository.cs" />
     <Compile Include="Repositories\ProductoRepository.cs" />
+    <Compile Include="Repositories\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PedidoYa.Model\PedidoYa.Model.csproj">

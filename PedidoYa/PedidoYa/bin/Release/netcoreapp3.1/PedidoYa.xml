@@ -111,5 +111,39 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.GetAllUsuario">
+            <summary>
+            Traer todos los Usuario
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.GetUsuarioForId(System.Int32)">
+            <summary>
+            Traer el Usuario con id igual a:
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.CreateUsuario(PedidoYa.Model.Usuario)">
+            <summary>
+            Crear un nuevo Usuario
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.UpdateUsuario(PedidoYa.Model.Usuario)">
+            <summary>
+            Actualizar el Usuario con id:
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.DeleteUsuario(System.Int32)">
+            <summary>
+            Borrar el Usuario con id:
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
