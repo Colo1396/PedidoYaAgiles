@@ -105,6 +105,7 @@ namespace PedidoYa.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+
             await _productoRepository.UpdatetProducto(producto);
 
             return NoContent();
