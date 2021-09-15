@@ -42,7 +42,7 @@ namespace PedidoYa
                 options.AddPolicy(name: "MyAllowSpecificOrigins",
                                   builder =>
                                   {
-                                      builder.WithOrigins("*").AllowAnyHeader();
+                                      builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod();
                                   });
             });
 
