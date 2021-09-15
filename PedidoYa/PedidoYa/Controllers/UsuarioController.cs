@@ -42,6 +42,17 @@ namespace PedidoYa.Controllers
         }
 
         /// <summary>
+        /// Traer el id del Usuario al ingresar usuario y contraseña. Devuelve 0 si no existe usuario.
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("login")]
+        public int LoginController([FromBody] Login login)
+        {
+            
+            return _usuarioRepository.Login(login.username, login.password);
+        }
+
+        /// <summary>
         /// Crear un nuevo Usuario
         /// </summary>
         /// <param name="usuario"></param>
@@ -91,6 +102,12 @@ namespace PedidoYa.Controllers
             return NoContent();
         }
 
-
+        public struct Login
+        {
+            public string username { get; set; }
+            public string password { get; set; }
+            
+        }
     }
+        
 }

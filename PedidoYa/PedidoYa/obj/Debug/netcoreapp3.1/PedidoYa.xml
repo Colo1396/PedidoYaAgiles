@@ -145,6 +145,12 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.Login(System.String,System.String)">
+            <summary>
+            Traer el Usuario con id igual a:
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:PedidoYa.Controllers.UsuarioController.CreateUsuario(PedidoYa.Model.Usuario)">
             <summary>
             Crear un nuevo Usuario
