@@ -11,10 +11,10 @@ namespace PedidoYa.Data.Repositories
     {
         List<Producto> GetAllProductos();
         Task<Producto> GetProductoForId(int idProducto);
-        Task<bool> InsertProducto(Producto producto);
+        //Task<bool> InsertProducto(Producto producto);
         Task<bool> InsertProducto(Producto producto,int idComercio);
         Task<bool> UpdatetProducto(Producto producto);
-        Task<bool> UpdatetProducto(Producto producto, int idComercio);
+        //Task<bool> UpdatetProducto(Producto producto, int idComercio);
         Task<bool> DeleteProducto(Producto producto);
         Task<IEnumerable<Producto>> GetAllProductosXComercio(int idComercio);
 

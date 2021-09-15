@@ -75,7 +75,7 @@ namespace PedidoYa.Data.Repositories
             return result > 0;
         }
 
-        public async Task<bool> InsertProducto(Producto producto)
+        /*public async Task<bool> InsertProducto(Producto producto)
         {
             var db = dbConnection();
 
@@ -84,7 +84,7 @@ namespace PedidoYa.Data.Repositories
 
             var result = await db.ExecuteAsync(sql, new { producto.nombre, producto.descripcion, producto.foto, producto.precio, producto.visible });
             return result > 0;
-        }
+        }*/
 
         public async Task<bool> UpdatetProducto(Producto producto)
         {
@@ -102,7 +102,7 @@ namespace PedidoYa.Data.Repositories
             return result > 0;
         }
 
-        public async Task<bool> UpdatetProducto(Producto producto,int idComercio)
+        /*public async Task<bool> UpdatetProducto(Producto producto,int idComercio)
         {
             var db = dbConnection();
 
@@ -118,7 +118,7 @@ namespace PedidoYa.Data.Repositories
             var result = await db.ExecuteAsync(sql, new { producto.nombre, producto.descripcion, producto.foto, producto.precio, producto.visible, producto.idProducto, @IdComercio=idComercio });
             return result > 0;
         }
-
+        */
 
     }
 }
