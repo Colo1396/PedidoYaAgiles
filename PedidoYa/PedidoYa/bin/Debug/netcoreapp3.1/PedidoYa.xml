@@ -110,6 +110,14 @@
             <param name="idComercio"></param>
             <returns></returns>
         </member>
+        <member name="M:PedidoYa.Controllers.ProductoController.CreateProductoConIdComercio(System.Int32,PedidoYa.Model.Producto)">
+            <summary>
+            Crear un nuevo Producto
+            </summary>
+            <param name="producto"></param>
+            <param name="idComercio"></param>
+            <returns></returns>
+        </member>
         <member name="M:PedidoYa.Controllers.ProductoController.UpdateProducto(PedidoYa.Model.Producto)">
             <summary>
             Actualizar el Producto con id:
@@ -135,6 +143,12 @@
             Traer el Usuario con id igual a:
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.Login(System.String,System.String)">
+            <summary>
+            Traer el Usuario con id igual a:
+            </summary>
             <returns></returns>
         </member>
         <member name="M:PedidoYa.Controllers.UsuarioController.CreateUsuario(PedidoYa.Model.Usuario)">

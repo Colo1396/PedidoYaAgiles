@@ -76,6 +76,16 @@ namespace PedidoYa.Data.Repositories
             var result = await db.ExecuteAsync(sql, new { Id = usuario.id });
             return result > 0;
         }
+
+        public int Login(string username, string password)
+        {
+            var db = dbConnection();
+
+            var sql = @"select id from usuario where username=@Username and password= @Password";
+
+            return db.QueryFirstOrDefault<int>(sql, new { Username = username, Password = password });
+
+        }
     }
 
 }
