@@ -36,12 +36,13 @@ namespace PedidoYa
             services.AddScoped<IComercioRepository, ComercioRepository>();
             services.AddScoped<IProductoRepository, ProductoRepository>();
             services.AddScoped<ILocalidadRepository, LocalidadRepository>();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddCors(options =>
             {
                 options.AddPolicy(name: "MyAllowSpecificOrigins",
                                   builder =>
                                   {
-                                      builder.WithOrigins("*").AllowAnyHeader();
+                                      builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod();
                                   });
             });
 

@@ -49,6 +49,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:PedidoYa.Controllers.ComercioController.GetComercioXIdUsuario(System.Int32)">
+            <summary>
+            Traer todos los Comercio por id Usuario
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:PedidoYa.Controllers.ComercioController.GetComercioForId(System.Int32)">
             <summary>
             Traer el Comercio con id igual a:
@@ -57,6 +63,13 @@
             <returns></returns>
         </member>
         <member name="M:PedidoYa.Controllers.ComercioController.CreateComercio(PedidoYa.Model.Comercio)">
+            <summary>
+            Crear un nuevo Comercio
+            </summary>
+            <param name="comercio"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ComercioController.CreateComercioAndUsuario(PedidoYa.Model.Comercio)">
             <summary>
             Crear un nuevo Comercio
             </summary>
@@ -97,6 +110,14 @@
             <param name="idComercio"></param>
             <returns></returns>
         </member>
+        <member name="M:PedidoYa.Controllers.ProductoController.CreateProductoConIdComercio(System.Int32,PedidoYa.Model.Producto)">
+            <summary>
+            Crear un nuevo Producto
+            </summary>
+            <param name="producto"></param>
+            <param name="idComercio"></param>
+            <returns></returns>
+        </member>
         <member name="M:PedidoYa.Controllers.ProductoController.UpdateProducto(PedidoYa.Model.Producto)">
             <summary>
             Actualizar el Producto con id:
@@ -107,6 +128,46 @@
         <member name="M:PedidoYa.Controllers.ProductoController.DeleteProducto(System.Int32)">
             <summary>
             Borrar el Producto con id:
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.GetAllUsuario">
+            <summary>
+            Traer todos los Usuario
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.GetUsuarioForId(System.Int32)">
+            <summary>
+            Traer el Usuario con id igual a:
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.LoginController(PedidoYa.Controllers.UsuarioController.Login)">
+            <summary>
+            Traer el id del Usuario al ingresar usuario y contraseña. Devuelve 0 si no existe usuario.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.CreateUsuario(PedidoYa.Model.Usuario)">
+            <summary>
+            Crear un nuevo Usuario
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.UpdateUsuario(PedidoYa.Model.Usuario)">
+            <summary>
+            Actualizar el Usuario con id:
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.DeleteUsuario(System.Int32)">
+            <summary>
+            Borrar el Usuario con id:
             </summary>
             <param name="id"></param>
             <returns></returns>

@@ -53,7 +53,7 @@ namespace PedidoYa.Controllers
             return Ok(await _productoRepository.GetAllProductosXComercio(idComercio));
         }
 
-        /* --REVISAR
+        /* //-- inecesario por el momento ya que esta el otro metodo que graba con comercio
         /// <summary>
         /// Crear un nuevo Producto
         /// </summary>
@@ -71,14 +71,14 @@ namespace PedidoYa.Controllers
             return Created("created", created);
         }*/
 
-        /* --REVISAR
+        //--REVISAR
         /// <summary>
         /// Crear un nuevo Producto
         /// </summary>
         /// <param name="producto"></param>
         /// <param name="idComercio"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPost("{idComercio}")]
         public async Task<IActionResult> CreateProductoConIdComercio(int idComercio,[FromBody] Producto producto)
         {
             if (producto == null )
@@ -86,10 +86,13 @@ namespace PedidoYa.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            if (producto.foto == null || producto.foto == "")
+                producto.foto = "https://dry-thicket-39505.herokuapp.com/img/comercio/default.png";
+
             var created = await _productoRepository.InsertProducto(producto, idComercio);
 
             return Created("created", created);
-        }*/
+        }
 
 
         /// <summary>
@@ -104,6 +107,7 @@ namespace PedidoYa.Controllers
                 return BadRequest();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
 
             await _productoRepository.UpdatetProducto(producto);
 
