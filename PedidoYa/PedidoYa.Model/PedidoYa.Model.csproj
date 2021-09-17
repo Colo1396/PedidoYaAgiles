@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auto.cs" />
+    <Compile Include="Categoria.cs" />
     <Compile Include="Comercio.cs" />
     <Compile Include="Localidad.cs" />
     <Compile Include="Producto.cs" />

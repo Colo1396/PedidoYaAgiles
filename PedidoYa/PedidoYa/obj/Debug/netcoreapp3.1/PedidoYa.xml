@@ -4,39 +4,6 @@
         <name>PedidoYa</name>
     </assembly>
     <members>
-        <member name="M:PedidoYa.Controllers.AutoController.GetAllAutos">
-            <summary>
-            Traer todos los Autos
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:PedidoYa.Controllers.AutoController.GetAllAutosForId(System.Int32)">
-            <summary>
-            Traer el auto con id igual a:
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:PedidoYa.Controllers.AutoController.CreateAuto(PedidoYa.Model.Auto)">
-            <summary>
-            Crear un nuevo Auto
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:PedidoYa.Controllers.AutoController.UpdateAuto(PedidoYa.Model.Auto)">
-            <summary>
-            Actualizar el Auto con id:
-            </summary>
-            <param name="auto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:PedidoYa.Controllers.AutoController.DeleteAuto(System.Int32)">
-            <summary>
-            Borrar el Auto con id:
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
         <member name="M:PedidoYa.Controllers.ComercioController.GetAllComercios">
             <summary>
             Traer todos los Comercio
@@ -145,9 +112,9 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:PedidoYa.Controllers.UsuarioController.Login(System.String,System.String)">
+        <member name="M:PedidoYa.Controllers.UsuarioController.LoginController(PedidoYa.Controllers.UsuarioController.Login)">
             <summary>
-            Traer el Usuario con id igual a:
+            Traer el id del Usuario al ingresar usuario y contraseña. Devuelve 0 si no existe usuario.
             </summary>
             <returns></returns>
         </member>

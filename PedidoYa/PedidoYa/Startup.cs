@@ -37,6 +37,7 @@ namespace PedidoYa
             services.AddScoped<IProductoRepository, ProductoRepository>();
             services.AddScoped<ILocalidadRepository, LocalidadRepository>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddCors(options =>
             {
                 options.AddPolicy(name: "MyAllowSpecificOrigins",
