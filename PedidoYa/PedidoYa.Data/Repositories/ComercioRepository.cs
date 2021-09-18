@@ -77,6 +77,7 @@ namespace PedidoYa.Data.Repositories
                 comercio.idComercio = result;
                 sql = @"delete from comercioxcategoria where idComercio = @IdComercio";
                 db.Execute(sql, comercio);
+                if(comercio.categorias !=null)
                 comercio.categorias.ForEach(categoria=> {
                     sql = @"INSERT INTO comercioxcategoria (idCategoria, idComercio) VALUES(@IdCategoria, @IdComercio)";
                     db.Execute(sql, new { IdCategoria = categoria.IdCategoria, IdComercio = comercio.idComercio });
