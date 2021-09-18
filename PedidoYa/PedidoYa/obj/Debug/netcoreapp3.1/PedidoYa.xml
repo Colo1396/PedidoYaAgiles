@@ -4,15 +4,21 @@
         <name>PedidoYa</name>
     </assembly>
     <members>
+        <member name="M:PedidoYa.Controllers.CategoriaController.Get">
+            <summary>
+            Traer todas las categorias
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:PedidoYa.Controllers.ComercioController.GetAllComercios">
             <summary>
             Traer todos los Comercio
             </summary>
             <returns></returns>
         </member>
-        <member name="M:PedidoYa.Controllers.ComercioController.GetAllComerciosXLocalidad(System.String)">
+        <member name="M:PedidoYa.Controllers.ComercioController.GetAllComerciosXLocalidad(System.String,System.Int32)">
             <summary>
-            Traer todos los Comercio por localidad
+            Traer todos los Comercio por localidad y categoria(opcional)
             </summary>
             <returns></returns>
         </member>
@@ -27,13 +33,6 @@
             Traer el Comercio con id igual a:
             </summary>
             <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:PedidoYa.Controllers.ComercioController.CreateComercio(PedidoYa.Model.Comercio)">
-            <summary>
-            Crear un nuevo Comercio
-            </summary>
-            <param name="comercio"></param>
             <returns></returns>
         </member>
         <member name="M:PedidoYa.Controllers.ComercioController.CreateComercioAndUsuario(PedidoYa.Model.Comercio)">

@@ -10,11 +10,11 @@ namespace PedidoYa.Data.Repositories
     public interface IComercioRepository
     {
         Task<IEnumerable<Comercio>> GetAllComercios();
-        Task<Comercio> GetComercioForId(int idComercio);
+        Comercio GetComercioForId(int idComercio);
         bool InsertComercio(Comercio comercio);
-        Task<bool> UpdatetComercio(Comercio comercio);
+        bool UpdateComercio(Comercio comercio);
         Task<bool> DeleteComercio(Comercio comercio);
-        Task<IEnumerable<Comercio>> GetAllComerciosXLocalidad(string localidad);
-        Task<Comercio> GetComercioXIdUsuario(int idUsuario);
+        List<Comercio> GetAllComerciosXLocalidadxCategoria(string localidad, int idCategoria);
+        Comercio GetComercioXIdUsuario(int idUsuario);
     }
 }

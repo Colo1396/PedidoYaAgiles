@@ -36,9 +36,9 @@ namespace PedidoYa.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUsuarioForId(int id)
+        public Usuario GetUsuarioForId(int id)
         {
-            return Ok(await _usuarioRepository.GetUsuarioForId(id));
+            return _usuarioRepository.GetUsuarioForId(id);
         }
 
         /// <summary>

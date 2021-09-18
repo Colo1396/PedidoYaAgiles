@@ -45,24 +45,33 @@ namespace PedidoYa.Data.Repositories
             return await db.QueryAsync<Comercio>(sql, new { });
         }
         //-------------------------------------------------------------------------------------------------------------------
-        public async Task<IEnumerable<Comercio>> GetAllComerciosXLocalidad(string localidad)
+        public List<Comercio> GetAllComerciosXLocalidadxCategoria(string localidad, int idCategoria)
         {
             var db = dbConnection();
+            string filters = "";
+            if(idCategoria != 0)
+            filters += "and cxc.idCategoria = @IdCategoria";
 
-            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion from comercio
-                        where localidad = @Localidad";
+            string sql = $@"select distinct c.* from comercio c left join comercioxcategoria cxc on c.idComercio = cxc.idComercio
+                        where localidad = @Localidad {filters}";
 
-            return await db.QueryAsync<Comercio>(sql, new { Localidad = localidad });
+            return db.Query<Comercio>(sql, new { Localidad = localidad, IdCategoria = idCategoria }).ToList();
         }
         //-------------------------------------------------------------------------------------------------------------------
-        public async Task<Comercio> GetComercioForId(int idComercio)
+        public Comercio GetComercioForId(int idComercio)
         {
             var db = dbConnection();
 
             var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion from comercio
                         where idComercio = @IdComercio";
 
-            return await db.QueryFirstOrDefaultAsync<Comercio>(sql, new { IdComercio = idComercio });
+            Comercio comercio = db.QueryFirstOrDefault<Comercio>(sql, new { IdComercio = idComercio });
+            if (comercio != null)
+            {
+                sql = @"select c.* from categoria c inner join comercioxcategoria cxc on c.idCategoria = cxc.idCategoria where idComercio = @IdComercio";
+                comercio.categorias = db.Query<Categoria>(sql, new { IdComercio = comercio.idComercio }).ToList();
+            }
+            return comercio;
         }
         //-------------------------------------------------------------------------------------------------------------------
         public bool InsertComercio(Comercio comercio)
@@ -86,7 +95,7 @@ namespace PedidoYa.Data.Repositories
             return result > 0;
         }
         //-------------------------------------------------------------------------------------------------------------------
-        public async Task<bool> UpdatetComercio(Comercio comercio)
+        public bool UpdateComercio(Comercio comercio)
         {
             var db = dbConnection();
 
@@ -100,11 +109,21 @@ namespace PedidoYa.Data.Repositories
                              descripcion=@Descripcion
                         where idComercio = @IdComercio";
 
-            var result = await db.ExecuteAsync(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo, comercio.descripcion ,comercio.idComercio });
+            var result = db.Execute(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo, comercio.descripcion ,comercio.idComercio });
+            if (result > 0)
+            {
+                sql = @"delete from comercioxcategoria where idComercio = @IdComercio";
+                db.Execute(sql, comercio);
+                if (comercio.categorias != null)
+                    comercio.categorias.ForEach(categoria => {
+                        sql = @"INSERT INTO comercioxcategoria (idCategoria, idComercio) VALUES(@IdCategoria, @IdComercio)";
+                        db.Execute(sql, new { IdCategoria = categoria.IdCategoria, IdComercio = comercio.idComercio });
+                    });
+            }
             return result > 0;
         }
         //-------------------------------------------------------------------------------------------------------------------
-        public async Task<Comercio> GetComercioXIdUsuario(int idUsuario)
+        public Comercio GetComercioXIdUsuario(int idUsuario)
         {
             var db = dbConnection();
 
@@ -114,8 +133,12 @@ namespace PedidoYa.Data.Repositories
            /* var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion from comercio c
                             inner join usuario u  on u.id = c.idUsuario                      
                         where u.id = @IdUsuario";*/
-
-            return await db.QueryFirstOrDefaultAsync<Comercio>(sql, new { IdUsuario = idUsuario });
+            Comercio comercio = db.QueryFirstOrDefault<Comercio>(sql, new { IdUsuario = idUsuario });
+            if (comercio != null) {
+                sql = @"select c.* from categoria c inner join comercioxcategoria cxc on c.idCategoria = cxc.idCategoria where idComercio = @IdComercio";
+                comercio.categorias = db.Query<Categoria>(sql, new {IdComercio = comercio.idComercio }).ToList();
+            }
+            return comercio;
             
         }
     }

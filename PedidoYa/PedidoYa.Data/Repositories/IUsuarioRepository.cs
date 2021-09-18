@@ -10,7 +10,7 @@ namespace PedidoYa.Data.Repositories
     public interface IUsuarioRepository
     {
         Task<IEnumerable<Usuario>> GetAllUsuario();
-        Task<Usuario> GetUsuarioForId(int idUsuario);
+        Usuario GetUsuarioForId(int idUsuario);
         int InsertUsuario(Usuario usuario);
         Task<bool> UpdatetUsuario(Usuario usuario);
         Task<bool> DeleteUsuario(Usuario usuario);

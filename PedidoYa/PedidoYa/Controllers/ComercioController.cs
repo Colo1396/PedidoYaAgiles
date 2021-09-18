@@ -34,13 +34,13 @@ namespace PedidoYa.Controllers
         }
         //-------------------------------------------------------------------------------------------------------------------
         /// <summary>
-        /// Traer todos los Comercio por localidad
+        /// Traer todos los Comercio por localidad y categoria(opcional)
         /// </summary>
         /// <returns></returns>
         [HttpGet("buscar/{localidad}")]
-        public async Task<IActionResult> GetAllComerciosXLocalidad(string localidad)
+        public List<Comercio> GetAllComerciosXLocalidad(string localidad,[FromQuery] int idCategoria)
         {
-            return Ok(await _comercioRepository.GetAllComerciosXLocalidad(localidad));
+            return _comercioRepository.GetAllComerciosXLocalidadxCategoria(localidad,idCategoria);
         }
         //-------------------------------------------------------------------------------------------------------------------
         /// <summary>
@@ -48,11 +48,11 @@ namespace PedidoYa.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("buscarXIdUsuario/{idUsuario}")]
-        public async Task<IActionResult> GetComercioXIdUsuario(int idUsuario)
+        public Comercio GetComercioXIdUsuario(int idUsuario)
         {
-           Comercio comercio = await _comercioRepository.GetComercioXIdUsuario(idUsuario);
-           comercio.usuario=await _usuarioRepository.GetUsuarioForId(idUsuario);
-            return Ok(comercio);
+           Comercio comercio = _comercioRepository.GetComercioXIdUsuario(idUsuario);
+           comercio.usuario= _usuarioRepository.GetUsuarioForId(idUsuario);
+            return comercio;
 
         }
         //-------------------------------------------------------------------------------------------------------------------
@@ -62,9 +62,9 @@ namespace PedidoYa.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetComercioForId(int id)
+        public Comercio GetComercioForId(int id)
         {
-            return Ok(await _comercioRepository.GetComercioForId(id));
+            return _comercioRepository.GetComercioForId(id);
         }
         //-------------------------------------------------------------------------------------------------------------------
         /// <summary>
@@ -72,6 +72,7 @@ namespace PedidoYa.Controllers
         /// </summary>
         /// <param name="comercio"></param>
         /// <returns></returns>
+        /*
         [HttpPost]
         public IActionResult CreateComercio([FromBody] Comercio comercio)
         {
@@ -89,6 +90,7 @@ namespace PedidoYa.Controllers
 
             return Created("created", created);
         }
+        */
 
         //-------------------------------------------------------------------------------------------------------------------
         /// <summary>
@@ -127,14 +129,14 @@ namespace PedidoYa.Controllers
         /// <param name="comercio"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<IActionResult> UpdateComercio([FromBody] Comercio comercio)
+        public IActionResult UpdateComercio([FromBody] Comercio comercio)
         {
             if (comercio == null)
                 return BadRequest();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            await _comercioRepository.UpdatetComercio(comercio);
+            _comercioRepository.UpdateComercio(comercio);
 
             return NoContent();
         }
