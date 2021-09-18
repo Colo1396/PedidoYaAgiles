@@ -31,14 +31,14 @@ namespace PedidoYa.Data.Repositories
             return await db.QueryAsync<Usuario>(sql, new { });
         }
 
-        public async Task<Usuario> GetUsuarioForId(int idUsuario)
+        public Usuario GetUsuarioForId(int idUsuario)
         {
             var db = dbConnection();
 
             var sql = @"select id, username, password from usuario
                         where id = @Id";
 
-            return await db.QueryFirstOrDefaultAsync<Usuario>(sql, new { Id = idUsuario });
+            return db.QueryFirstOrDefault<Usuario>(sql, new { Id = idUsuario });
         }
 
         public int InsertUsuario(Usuario usuario)

@@ -48,11 +48,11 @@ namespace PedidoYa.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("buscarXIdUsuario/{idUsuario}")]
-        public async Task<IActionResult> GetComercioXIdUsuario(int idUsuario)
+        public Comercio GetComercioXIdUsuario(int idUsuario)
         {
-           Comercio comercio = await _comercioRepository.GetComercioXIdUsuario(idUsuario);
-           comercio.usuario=await _usuarioRepository.GetUsuarioForId(idUsuario);
-            return Ok(comercio);
+           Comercio comercio = _comercioRepository.GetComercioXIdUsuario(idUsuario);
+           comercio.usuario= _usuarioRepository.GetUsuarioForId(idUsuario);
+            return comercio;
 
         }
         //-------------------------------------------------------------------------------------------------------------------
@@ -62,9 +62,9 @@ namespace PedidoYa.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetComercioForId(int id)
+        public Comercio GetComercioForId(int id)
         {
-            return Ok(await _comercioRepository.GetComercioForId(id));
+            return _comercioRepository.GetComercioForId(id);
         }
         //-------------------------------------------------------------------------------------------------------------------
         /// <summary>
@@ -127,14 +127,14 @@ namespace PedidoYa.Controllers
         /// <param name="comercio"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<IActionResult> UpdateComercio([FromBody] Comercio comercio)
+        public IActionResult UpdateComercio([FromBody] Comercio comercio)
         {
             if (comercio == null)
                 return BadRequest();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            await _comercioRepository.UpdatetComercio(comercio);
+            _comercioRepository.UpdateComercio(comercio);
 
             return NoContent();
         }
