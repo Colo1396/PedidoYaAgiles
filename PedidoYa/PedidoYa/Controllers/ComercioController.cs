@@ -34,13 +34,13 @@ namespace PedidoYa.Controllers
         }
         //-------------------------------------------------------------------------------------------------------------------
         /// <summary>
-        /// Traer todos los Comercio por localidad
+        /// Traer todos los Comercio por localidad y categoria(opcional)
         /// </summary>
         /// <returns></returns>
         [HttpGet("buscar/{localidad}")]
-        public async Task<IActionResult> GetAllComerciosXLocalidad(string localidad)
+        public List<Comercio> GetAllComerciosXLocalidad(string localidad,[FromQuery] int idCategoria)
         {
-            return Ok(await _comercioRepository.GetAllComerciosXLocalidad(localidad));
+            return _comercioRepository.GetAllComerciosXLocalidadxCategoria(localidad,idCategoria);
         }
         //-------------------------------------------------------------------------------------------------------------------
         /// <summary>
@@ -72,6 +72,7 @@ namespace PedidoYa.Controllers
         /// </summary>
         /// <param name="comercio"></param>
         /// <returns></returns>
+        /*
         [HttpPost]
         public IActionResult CreateComercio([FromBody] Comercio comercio)
         {
@@ -89,6 +90,7 @@ namespace PedidoYa.Controllers
 
             return Created("created", created);
         }
+        */
 
         //-------------------------------------------------------------------------------------------------------------------
         /// <summary>

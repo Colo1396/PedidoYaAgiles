@@ -45,14 +45,17 @@ namespace PedidoYa.Data.Repositories
             return await db.QueryAsync<Comercio>(sql, new { });
         }
         //-------------------------------------------------------------------------------------------------------------------
-        public async Task<IEnumerable<Comercio>> GetAllComerciosXLocalidad(string localidad)
+        public List<Comercio> GetAllComerciosXLocalidadxCategoria(string localidad, int idCategoria)
         {
             var db = dbConnection();
+            string filters = "";
+            if(idCategoria != 0)
+            filters += "and cxc.idCategoria = @IdCategoria";
 
-            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion from comercio
-                        where localidad = @Localidad";
+            string sql = $@"select distinct c.* from comercio c left join comercioxcategoria cxc on c.idComercio = cxc.idComercio
+                        where localidad = @Localidad {filters}";
 
-            return await db.QueryAsync<Comercio>(sql, new { Localidad = localidad });
+            return db.Query<Comercio>(sql, new { Localidad = localidad, IdCategoria = idCategoria }).ToList();
         }
         //-------------------------------------------------------------------------------------------------------------------
         public Comercio GetComercioForId(int idComercio)

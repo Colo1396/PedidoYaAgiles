@@ -19,7 +19,11 @@ namespace PedidoYa.Controllers
         {
             _categoriaRepository = categoriaRepository;
         }
-   
+
+        /// <summary>
+        /// Traer todas las categorias
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public List<Categoria> Get()
         {
