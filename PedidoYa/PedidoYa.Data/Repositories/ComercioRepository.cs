@@ -65,14 +65,23 @@ namespace PedidoYa.Data.Repositories
             return await db.QueryFirstOrDefaultAsync<Comercio>(sql, new { IdComercio = idComercio });
         }
         //-------------------------------------------------------------------------------------------------------------------
-        public async Task<bool> InsertComercio(Comercio comercio)
+        public bool InsertComercio(Comercio comercio)
         {
             var db = dbConnection();
 
             var sql = @"insert into comercio (nombre, direccion, localidad, telefono, calificacion, logo,descripcion,idUsuario) 
-                        values (@Nombre,@Direccion,@Localidad,@Telefono,@Calificacion,@Logo,@Descripcion,@IdUsuario)";
+                        values (@Nombre,@Direccion,@Localidad,@Telefono,@Calificacion,@Logo,@Descripcion,@IdUsuario); select LAST_INSERT_ID();";
 
-            var result = await db.ExecuteAsync(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo,comercio.descripcion, IdUsuario=comercio.usuario.id });
+            int result = db.ExecuteScalar<int>(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo,comercio.descripcion, IdUsuario=comercio.usuario.id });
+            if (result > 0) {
+                comercio.idComercio = result;
+                sql = @"delete from comercioxcategoria where idComercio = @IdComercio";
+                db.Execute(sql, comercio);
+                comercio.categorias.ForEach(categoria=> {
+                    sql = @"INSERT INTO comercioxcategoria (idCategoria, idComercio) VALUES(@IdCategoria, @IdComercio)";
+                    db.Execute(sql, new { IdCategoria = categoria.IdCategoria, IdComercio = comercio.idComercio });
+                });
+            }
             return result > 0;
         }
         //-------------------------------------------------------------------------------------------------------------------

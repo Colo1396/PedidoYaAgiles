@@ -41,15 +41,15 @@ namespace PedidoYa.Data.Repositories
             return await db.QueryFirstOrDefaultAsync<Usuario>(sql, new { Id = idUsuario });
         }
 
-        public async Task<bool> InsertUsuario(Usuario usuario)
+        public int InsertUsuario(Usuario usuario)
         {
             var db = dbConnection();
 
             var sql = @"insert into usuario (username, password) 
-                        values (@Username,@Password)";
+                        values (@Username,@Password); select LAST_INSERT_ID();";
 
-            var result = await db.ExecuteAsync(sql, new { usuario.username, usuario.password });
-            return result > 0;
+            int id = db.ExecuteScalar<int>(sql, new { usuario.username, usuario.password });
+            return id;
         }
 
         public async Task<bool> UpdatetUsuario(Usuario usuario)

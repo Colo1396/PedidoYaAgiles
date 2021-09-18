@@ -11,7 +11,7 @@ namespace PedidoYa.Data.Repositories
     {
         Task<IEnumerable<Comercio>> GetAllComercios();
         Task<Comercio> GetComercioForId(int idComercio);
-        Task<bool> InsertComercio(Comercio comercio);
+        bool InsertComercio(Comercio comercio);
         Task<bool> UpdatetComercio(Comercio comercio);
         Task<bool> DeleteComercio(Comercio comercio);
         Task<IEnumerable<Comercio>> GetAllComerciosXLocalidad(string localidad);

@@ -11,7 +11,7 @@ namespace PedidoYa.Data.Repositories
     {
         Task<IEnumerable<Usuario>> GetAllUsuario();
         Task<Usuario> GetUsuarioForId(int idUsuario);
-        Task<bool> InsertUsuario(Usuario usuario);
+        int InsertUsuario(Usuario usuario);
         Task<bool> UpdatetUsuario(Usuario usuario);
         Task<bool> DeleteUsuario(Usuario usuario);
         int Login(string username,string password);
