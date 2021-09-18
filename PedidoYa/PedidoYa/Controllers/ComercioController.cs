@@ -73,7 +73,7 @@ namespace PedidoYa.Controllers
         /// <param name="comercio"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> CreateComercio([FromBody] Comercio comercio)
+        public IActionResult CreateComercio([FromBody] Comercio comercio)
         {
             
             
@@ -85,7 +85,7 @@ namespace PedidoYa.Controllers
             if (comercio.logo == null || comercio.logo == "")
                 comercio.logo = "https://dry-thicket-39505.herokuapp.com/img/comercio/default.png";
 
-            var created = await _comercioRepository.InsertComercio(comercio);
+            var created = _comercioRepository.InsertComercio(comercio);
 
             return Created("created", created);
         }
@@ -97,7 +97,7 @@ namespace PedidoYa.Controllers
         /// <param name="comercio"></param>
         /// <returns></returns>
         [HttpPost("ComercioAndUsuario")]
-        public async Task<IActionResult> CreateComercioAndUsuario([FromBody] Comercio comercio)
+        public IActionResult CreateComercioAndUsuario([FromBody] Comercio comercio)
         {
             if (comercio == null)
                 return BadRequest();
@@ -112,7 +112,9 @@ namespace PedidoYa.Controllers
             if (comercio.logo == null || comercio.logo == "")
                 comercio.logo = "https://dry-thicket-39505.herokuapp.com/img/comercio/default.png";
 
-            if (await _comercioRepository.InsertComercio(comercio)==true && await _usuarioRepository.InsertUsuario(comercio.usuario)==true)
+            comercio.usuario.id = _usuarioRepository.InsertUsuario(comercio.usuario);
+
+            if ( _comercioRepository.InsertComercio(comercio))
                 return Created("created", true);
             else
                 return Created("created", false);

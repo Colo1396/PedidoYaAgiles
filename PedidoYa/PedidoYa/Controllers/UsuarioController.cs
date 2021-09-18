@@ -58,16 +58,12 @@ namespace PedidoYa.Controllers
         /// <param name="usuario"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> CreateUsuario([FromBody] Usuario usuario)
+        public int CreateUsuario([FromBody] Usuario usuario)
         {
-            if (usuario == null)
-                return BadRequest();
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
 
-            var created = await _usuarioRepository.InsertUsuario(usuario);
+            int created = _usuarioRepository.InsertUsuario(usuario);
 
-            return Created("created", created);
+            return created;
         }
 
 

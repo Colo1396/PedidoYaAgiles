@@ -18,5 +18,6 @@ namespace PedidoYa.Model
         public string logo { get; set; }
         public string descripcion { get; set; }
         public Usuario usuario { get; set; }
+        public List<Categoria> categorias { get; set; }
     }
 }
