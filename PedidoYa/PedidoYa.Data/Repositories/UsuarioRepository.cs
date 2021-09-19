@@ -86,6 +86,16 @@ namespace PedidoYa.Data.Repositories
             return db.QueryFirstOrDefault<int>(sql, new { Username = username, Password = password });
 
         }
+
+        public Usuario GetUsuarioForUserName(string username)
+        {
+            var db = dbConnection();
+
+            var sql = @"select * from usuario where username=@Username";
+
+            Usuario user = db.QueryFirstOrDefault<Usuario>(sql, new { Username = username});
+            return user;
+        }
     }
 
 }

@@ -40,7 +40,27 @@ namespace PedidoYa.Controllers
         {
             return _usuarioRepository.GetUsuarioForId(id);
         }
+        
+        /// <summary>
+        /// Traer el Usuario por username
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("getByUserName/{username}")]
+        public Usuario GetUsuarioForUserName(string username)
+        {
+            return _usuarioRepository.GetUsuarioForUserName(username);
+        }
 
+        /// <summary>
+        /// Traer el id del Usuario al ingresar usuario y contraseña. Devuelve 0 si no existe usuario.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("login")]
+        public int LoginControllerGet([FromBody] Login login)
+        {
+            return _usuarioRepository.Login(login.username, login.password);
+        }
+        
         /// <summary>
         /// Traer el id del Usuario al ingresar usuario y contraseña. Devuelve 0 si no existe usuario.
         /// </summary>
@@ -48,7 +68,6 @@ namespace PedidoYa.Controllers
         [HttpPost("login")]
         public int LoginController([FromBody] Login login)
         {
-            
             return _usuarioRepository.Login(login.username, login.password);
         }
 
