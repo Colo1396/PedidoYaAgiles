@@ -111,6 +111,18 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.GetUsuarioForUserName(System.String)">
+            <summary>
+            Traer el Usuario por username
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.LoginControllerGet(PedidoYa.Controllers.UsuarioController.Login)">
+            <summary>
+            Traer el id del Usuario al ingresar usuario y contraseña. Devuelve 0 si no existe usuario.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:PedidoYa.Controllers.UsuarioController.LoginController(PedidoYa.Controllers.UsuarioController.Login)">
             <summary>
             Traer el id del Usuario al ingresar usuario y contraseña. Devuelve 0 si no existe usuario.

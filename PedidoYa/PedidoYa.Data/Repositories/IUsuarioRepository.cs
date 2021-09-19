@@ -15,5 +15,6 @@ namespace PedidoYa.Data.Repositories
         Task<bool> UpdatetUsuario(Usuario usuario);
         Task<bool> DeleteUsuario(Usuario usuario);
         int Login(string username,string password);
+        Usuario GetUsuarioForUserName(string username);
     }
 }
