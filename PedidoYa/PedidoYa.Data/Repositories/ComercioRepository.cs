@@ -40,7 +40,7 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion from comercio";
+            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion, costoEnvio, horario, diasAbierto from comercio";
 
             return await db.QueryAsync<Comercio>(sql, new { });
         }
@@ -62,7 +62,7 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion from comercio
+            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion, costoEnvio, horario, diasAbierto from comercio
                         where idComercio = @IdComercio";
 
             Comercio comercio = db.QueryFirstOrDefault<Comercio>(sql, new { IdComercio = idComercio });
@@ -78,10 +78,10 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"insert into comercio (nombre, direccion, localidad, telefono, calificacion, logo,descripcion,idUsuario) 
-                        values (@Nombre,@Direccion,@Localidad,@Telefono,@Calificacion,@Logo,@Descripcion,@IdUsuario); select LAST_INSERT_ID();";
+            var sql = @"insert into comercio (nombre, direccion, localidad, telefono, calificacion, logo,descripcion,idUsuario, costoEnvio, horario, diasAbierto) 
+                        values (@Nombre,@Direccion,@Localidad,@Telefono,@Calificacion,@Logo,@Descripcion,@IdUsuario, @CostoEnvio, @Horario, @DiasAbierto); select LAST_INSERT_ID();";
 
-            int result = db.ExecuteScalar<int>(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo,comercio.descripcion, IdUsuario=comercio.usuario.id });
+            int result = db.ExecuteScalar<int>(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo,comercio.descripcion, IdUsuario=comercio.usuario.id,comercio.costoEnvio,comercio.horario,comercio.diasAbierto });
             if (result > 0) {
                 comercio.idComercio = result;
                 sql = @"delete from comercioxcategoria where idComercio = @IdComercio";
@@ -106,10 +106,13 @@ namespace PedidoYa.Data.Repositories
                              telefono=@Telefono,
                              calificacion=@Calificacion,
                              logo=@Logo,
-                             descripcion=@Descripcion
+                             descripcion=@Descripcion,
+                             costoEnvio=@CostoEnvio, 
+                             horario=@Horario, 
+                             diasAbierto=@DiasAbierto
                         where idComercio = @IdComercio";
 
-            var result = db.Execute(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo, comercio.descripcion ,comercio.idComercio });
+            var result = db.Execute(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo, comercio.descripcion ,comercio.idComercio, comercio.costoEnvio, comercio.horario, comercio.diasAbierto });
             if (result > 0)
             {
                 sql = @"delete from comercioxcategoria where idComercio = @IdComercio";
@@ -127,7 +130,7 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion from comercio
+            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion, costoEnvio, horario, diasAbierto from comercio
                         where idUsuario = @IdUsuario";
 
            /* var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion from comercio c

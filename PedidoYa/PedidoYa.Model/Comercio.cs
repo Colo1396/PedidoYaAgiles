@@ -19,5 +19,8 @@ namespace PedidoYa.Model
         public string descripcion { get; set; }
         public Usuario usuario { get; set; }
         public List<Categoria> categorias { get; set; }
+        public double costoEnvio { get; set; }
+        public string horario { get; set; }
+        public string diasAbierto { get; set; }
     }
 }
