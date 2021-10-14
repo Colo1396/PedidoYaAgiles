@@ -53,6 +53,15 @@ namespace PedidoYa.Data.Repositories
 
             return await db.QueryAsync<Producto>(sql, new { IdComercio = idComercio });
         }
+        
+        public async Task<IEnumerable<Producto>> GetAllProductosXNombre(string Nombre)
+        {
+            var db = dbConnection();
+
+            var sql = @"select idProducto, nombre, descripcion, foto, precio, visible, idComercio from producto where nombre LIKE '%" + Nombre + "%'";
+
+            return await db.QueryAsync<Producto>(sql, new { Nombre = Nombre });
+        }
 
         public async Task<Producto> GetProductoForId(int idProducto)
         {

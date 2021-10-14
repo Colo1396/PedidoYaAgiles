@@ -76,6 +76,13 @@
             <param name="idComercio"></param>
             <returns></returns>
         </member>
+        <member name="M:PedidoYa.Controllers.ProductoController.GetAllProductosXNombre(System.String)">
+            <summary>
+            Traer todos los Producto
+            </summary>
+            <param name="Nombre"></param>
+            <returns></returns>
+        </member>
         <member name="M:PedidoYa.Controllers.ProductoController.CreateProductoConIdComercio(System.Int32,PedidoYa.Model.Producto)">
             <summary>
             Crear un nuevo Producto

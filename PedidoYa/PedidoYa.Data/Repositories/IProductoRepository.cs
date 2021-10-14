@@ -17,6 +17,7 @@ namespace PedidoYa.Data.Repositories
         //Task<bool> UpdatetProducto(Producto producto, int idComercio);
         Task<bool> DeleteProducto(Producto producto);
         Task<IEnumerable<Producto>> GetAllProductosXComercio(int idComercio);
+        Task<IEnumerable<Producto>> GetAllProductosXNombre(string nombre);
 
     }
 }

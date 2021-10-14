@@ -53,6 +53,18 @@ namespace PedidoYa.Controllers
             return Ok(await _productoRepository.GetAllProductosXComercio(idComercio));
         }
 
+        /// <summary>
+        /// Traer todos los Producto
+        /// </summary>
+        /// <param name="Nombre"></param>
+        /// <returns></returns>
+        [HttpGet("{Nombre}")]
+        public async Task<IActionResult> GetAllProductosXNombre(string Nombre)
+        {
+            var rta = await _productoRepository.GetAllProductosXNombre(Nombre);
+            return Ok(rta);
+        }
+
         /* //-- inecesario por el momento ya que esta el otro metodo que graba con comercio
         /// <summary>
         /// Crear un nuevo Producto
