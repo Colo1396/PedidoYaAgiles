@@ -42,6 +42,17 @@ namespace PedidoYa.Controllers
         {
             return _comercioRepository.GetAllComerciosXLocalidadxCategoria(localidad,idCategoria);
         }
+
+        //-------------------------------------------------------------------------------------------------------------------
+        /// <summary>
+        /// Traer todos los Comercio por producto
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("buscarXProducto/{producto}")]
+        public List<Comercio> GetAllComerciosXLocalidadYProducto(string producto, [FromQuery] string localidad)
+        {
+            return _comercioRepository.GetAllComerciosXProducto(localidad, producto);
+        }
         //-------------------------------------------------------------------------------------------------------------------
         /// <summary>
         /// Traer todos los Comercio por id Usuario

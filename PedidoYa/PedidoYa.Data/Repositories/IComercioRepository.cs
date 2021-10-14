@@ -15,6 +15,7 @@ namespace PedidoYa.Data.Repositories
         bool UpdateComercio(Comercio comercio);
         Task<bool> DeleteComercio(Comercio comercio);
         List<Comercio> GetAllComerciosXLocalidadxCategoria(string localidad, int idCategoria);
+        List<Comercio> GetAllComerciosXProducto(string localidad, string nombreProducto);
         Comercio GetComercioXIdUsuario(int idUsuario);
     }
 }

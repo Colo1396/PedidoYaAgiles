@@ -58,6 +58,17 @@ namespace PedidoYa.Data.Repositories
             return db.Query<Comercio>(sql, new { Localidad = localidad, IdCategoria = idCategoria }).ToList();
         }
         //-------------------------------------------------------------------------------------------------------------------
+        public List<Comercio> GetAllComerciosXProducto(string localidad, string nombreProducto)
+        {
+            var db = dbConnection();
+
+            string sql = $@"select distinct * from comercio
+                            inner join producto on producto.idComercio = comercio.idComercio
+                            where localidad = @Localidad and producto.nombre = @NombreProducto";
+
+            return db.Query<Comercio>(sql, new { Localidad = localidad, NombreProducto = nombreProducto }).ToList();
+        }
+        //-------------------------------------------------------------------------------------------------------------------
         public Comercio GetComercioForId(int idComercio)
         {
             var db = dbConnection();
