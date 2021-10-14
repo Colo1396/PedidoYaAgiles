@@ -64,7 +64,7 @@ namespace PedidoYa.Data.Repositories
 
             string sql = $@"select distinct * from comercio
                             inner join producto on producto.idComercio = comercio.idComercio
-                            where localidad = @Localidad and producto.nombre = @NombreProducto";
+                            where localidad = @Localidad and producto.nombre LIKE '%" + nombreProducto + "%'";
 
             return db.Query<Comercio>(sql, new { Localidad = localidad, NombreProducto = nombreProducto }).ToList();
         }
