@@ -45,37 +45,35 @@ namespace PedidoYa.Controllers
         /// Crear un nuevo Pedido
         /// </summary>
         /// <param name="pedido"></param>
-        /// <param name="idComercio"></param>
         /// <returns></returns>
-        [HttpPost("{idComercio}")]
-        public async Task<IActionResult> InsertPedido(int idComercio, [FromBody] Pedido pedido)
+        [HttpPost]
+        public async Task<IActionResult> InsertPedido( [FromBody] Pedido pedido)
         {
             if (pedido == null)
                 return BadRequest();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var created = await _pedidoRepository.InsertPedido(pedido, idComercio);
+            var created = await _pedidoRepository.InsertPedido(pedido);
 
             return Created("created", created);
         }
 
         
         /// <summary>
-        /// Actualizar el Pedido con id y comercio:
+        /// Actualizar el Pedido :
         /// </summary>
         /// <param name="pedido"></param>
-        /// <param name="idComercio"></param>
         /// <returns></returns>
-        [HttpPut("UpdatetPedido/{idComercio}")]
-        public async Task<IActionResult> UpdatetPedido([FromBody] Pedido pedido, int idComercio)
+        [HttpPut("UpdatetPedido/")]
+        public async Task<IActionResult> UpdatetPedido([FromBody] Pedido pedido)
         {
             if (pedido == null)
                 return BadRequest();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            await _pedidoRepository.UpdatetPedido(pedido, idComercio);
+            await _pedidoRepository.UpdatetPedido(pedido);
 
             return NoContent();
         }

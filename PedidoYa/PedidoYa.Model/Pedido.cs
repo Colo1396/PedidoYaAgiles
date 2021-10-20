@@ -13,5 +13,7 @@ namespace PedidoYa.Model
         public string direccion { get; set; }
         public string comentarios { get; set; }
         public string estado { get; set; }
+
+        public int idComercio { get; set; }
     }
 }
