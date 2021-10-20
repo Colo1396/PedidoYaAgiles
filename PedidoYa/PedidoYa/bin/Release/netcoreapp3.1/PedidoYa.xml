@@ -4,37 +4,10 @@
         <name>PedidoYa</name>
     </assembly>
     <members>
-        <member name="M:PedidoYa.Controllers.AutoController.GetAllAutos">
+        <member name="M:PedidoYa.Controllers.CategoriaController.Get">
             <summary>
-            Traer todos los Autos
+            Traer todas las categorias
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:PedidoYa.Controllers.AutoController.GetAllAutosForId(System.Int32)">
-            <summary>
-            Traer el auto con id igual a:
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:PedidoYa.Controllers.AutoController.CreateAuto(PedidoYa.Model.Auto)">
-            <summary>
-            Crear un nuevo Auto
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:PedidoYa.Controllers.AutoController.UpdateAuto(PedidoYa.Model.Auto)">
-            <summary>
-            Actualizar el Auto con id:
-            </summary>
-            <param name="auto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:PedidoYa.Controllers.AutoController.DeleteAuto(System.Int32)">
-            <summary>
-            Borrar el Auto con id:
-            </summary>
-            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:PedidoYa.Controllers.ComercioController.GetAllComercios">
@@ -43,9 +16,15 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:PedidoYa.Controllers.ComercioController.GetAllComerciosXLocalidad(System.String)">
+        <member name="M:PedidoYa.Controllers.ComercioController.GetAllComerciosXLocalidad(System.String,System.Int32)">
             <summary>
-            Traer todos los Comercio por localidad
+            Traer todos los Comercio por localidad y categoria(opcional)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ComercioController.GetAllComerciosXLocalidadYProducto(System.String,System.String)">
+            <summary>
+            Traer todos los Comercio por producto
             </summary>
             <returns></returns>
         </member>
@@ -60,13 +39,6 @@
             Traer el Comercio con id igual a:
             </summary>
             <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:PedidoYa.Controllers.ComercioController.CreateComercio(PedidoYa.Model.Comercio)">
-            <summary>
-            Crear un nuevo Comercio
-            </summary>
-            <param name="comercio"></param>
             <returns></returns>
         </member>
         <member name="M:PedidoYa.Controllers.ComercioController.CreateComercioAndUsuario(PedidoYa.Model.Comercio)">
@@ -90,6 +62,50 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:PedidoYa.Controllers.PedidoController.GetAllPedido">
+            <summary>
+            Traer todos los Pedidos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.PedidoController.GetPedidoForId(System.Int32)">
+            <summary>
+            Traer el Pedidos con id igual a:
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.PedidoController.InsertPedido(System.Int32,PedidoYa.Model.Pedido)">
+            <summary>
+            Crear un nuevo Pedido
+            </summary>
+            <param name="pedido"></param>
+            <param name="idComercio"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.PedidoController.UpdatetPedido(PedidoYa.Model.Pedido,System.Int32)">
+            <summary>
+            Actualizar el Pedido con id y comercio:
+            </summary>
+            <param name="pedido"></param>
+            <param name="idComercio"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.PedidoController.UpdatetEstadoPedido(PedidoYa.Model.Pedido,System.String)">
+            <summary>
+            Actualizar el Pedido con id y estado:
+            </summary>
+            <param name="pedido"></param>
+            <param name="estado"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.PedidoController.DeletePedido(System.Int32)">
+            <summary>
+            Borrar el Pedido con id:
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:PedidoYa.Controllers.ProductoController.GetAllProductos">
             <summary>
             Traer todos los Producto
@@ -108,6 +124,13 @@
             Traer todos los Producto
             </summary>
             <param name="idComercio"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.ProductoController.GetAllProductosXNombre(System.String)">
+            <summary>
+            Traer todos los Producto
+            </summary>
+            <param name="Nombre"></param>
             <returns></returns>
         </member>
         <member name="M:PedidoYa.Controllers.ProductoController.CreateProductoConIdComercio(System.Int32,PedidoYa.Model.Producto)">
@@ -143,6 +166,18 @@
             Traer el Usuario con id igual a:
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.GetUsuarioForUserName(System.String)">
+            <summary>
+            Traer el Usuario por username
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.UsuarioController.LoginControllerGet(PedidoYa.Controllers.UsuarioController.Login)">
+            <summary>
+            Traer el id del Usuario al ingresar usuario y contraseña. Devuelve 0 si no existe usuario.
+            </summary>
             <returns></returns>
         </member>
         <member name="M:PedidoYa.Controllers.UsuarioController.LoginController(PedidoYa.Controllers.UsuarioController.Login)">

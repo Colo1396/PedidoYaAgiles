@@ -100,9 +100,11 @@
     <Compile Include="Repositories\ICategoriaRepository.cs" />
     <Compile Include="Repositories\IComercioRepository.cs" />
     <Compile Include="Repositories\ILocalidadRepository.cs" />
+    <Compile Include="Repositories\IPedidoRepository.cs" />
     <Compile Include="Repositories\IProductoRepository.cs" />
     <Compile Include="Repositories\IUsuarioRepository.cs" />
     <Compile Include="Repositories\LocalidadRepository.cs" />
+    <Compile Include="Repositories\PedidoRepository.cs" />
     <Compile Include="Repositories\ProductoRepository.cs" />
     <Compile Include="Repositories\UsuarioRepository.cs" />
   </ItemGroup>

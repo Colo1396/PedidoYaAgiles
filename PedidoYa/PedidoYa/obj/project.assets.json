@@ -1447,20 +1447,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nicolas\\.nuget\\packages\\": {}
+    "C:\\Users\\nazar\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nicolas\\source\\repos\\PedidosYaSantos\\PedidoYa\\PedidoYa\\PedidoYa.csproj",
+      "projectUniqueName": "C:\\Users\\nazar\\Documents\\GitHub\\PedidosYaSantos\\PedidoYa\\PedidoYa\\PedidoYa.csproj",
       "projectName": "PedidoYa",
-      "projectPath": "C:\\Users\\Nicolas\\source\\repos\\PedidosYaSantos\\PedidoYa\\PedidoYa\\PedidoYa.csproj",
-      "packagesPath": "C:\\Users\\Nicolas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nicolas\\source\\repos\\PedidosYaSantos\\PedidoYa\\PedidoYa\\obj\\",
+      "projectPath": "C:\\Users\\nazar\\Documents\\GitHub\\PedidosYaSantos\\PedidoYa\\PedidoYa\\PedidoYa.csproj",
+      "packagesPath": "C:\\Users\\nazar\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nazar\\Documents\\GitHub\\PedidosYaSantos\\PedidoYa\\PedidoYa\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Nicolas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\nazar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -1473,11 +1481,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Nicolas\\source\\repos\\PedidosYaSantos\\PedidoYa\\PedidoYa.Data\\PedidoYa.Data.csproj": {
-              "projectPath": "C:\\Users\\Nicolas\\source\\repos\\PedidosYaSantos\\PedidoYa\\PedidoYa.Data\\PedidoYa.Data.csproj"
+            "C:\\Users\\nazar\\Documents\\GitHub\\PedidosYaSantos\\PedidoYa\\PedidoYa.Data\\PedidoYa.Data.csproj": {
+              "projectPath": "C:\\Users\\nazar\\Documents\\GitHub\\PedidosYaSantos\\PedidoYa\\PedidoYa.Data\\PedidoYa.Data.csproj"
             },
-            "C:\\Users\\Nicolas\\source\\repos\\PedidosYaSantos\\PedidoYa\\PedidoYa.Model\\PedidoYa.Model.csproj": {
-              "projectPath": "C:\\Users\\Nicolas\\source\\repos\\PedidosYaSantos\\PedidoYa\\PedidoYa.Model\\PedidoYa.Model.csproj"
+            "C:\\Users\\nazar\\Documents\\GitHub\\PedidosYaSantos\\PedidoYa\\PedidoYa.Model\\PedidoYa.Model.csproj": {
+              "projectPath": "C:\\Users\\nazar\\Documents\\GitHub\\PedidosYaSantos\\PedidoYa\\PedidoYa.Model\\PedidoYa.Model.csproj"
             }
           }
         }

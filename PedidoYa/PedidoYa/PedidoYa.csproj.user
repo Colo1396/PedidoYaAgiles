@@ -6,7 +6,7 @@
   <PropertyGroup>
     <ActiveDebugProfile>PedidoYa</ActiveDebugProfile>
     <ShowAllFiles>false</ShowAllFiles>
-    <Controller_SelectedScaffolderID>ApiControllerWithActionsScaffolder</Controller_SelectedScaffolderID>
+    <Controller_SelectedScaffolderID>ApiControllerEmptyScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Common/Api</Controller_SelectedScaffolderCategoryPath>
   </PropertyGroup>
 </Project>
