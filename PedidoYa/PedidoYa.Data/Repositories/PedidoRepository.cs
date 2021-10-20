@@ -55,14 +55,14 @@ namespace PedidoYa.Data.Repositories
 
         }
 
-        public async Task<bool> InsertPedido(Pedido pedido, int idComercio)
+        public async Task<bool> InsertPedido(Pedido pedido)
         {
             var db = dbConnection();
 
             var sql = @"insert into pedido (idComercio, descripcion, direccion, comentarios, estado) 
                         values (@IdComercio,@Descripcion,@Direccion,@Comentarios,@Estado)";
 
-            var result = await db.ExecuteAsync(sql, new { IdComercio = idComercio, pedido.descripcion, pedido.direccion, pedido.comentarios, pedido.estado});
+            var result = await db.ExecuteAsync(sql, new { pedido.idComercio, pedido.descripcion, pedido.direccion, pedido.comentarios, pedido.estado});
             return result > 0;
         }
 
@@ -78,7 +78,7 @@ namespace PedidoYa.Data.Repositories
             return result > 0;
         }
 
-        public async Task<bool> UpdatetPedido(Pedido pedido,int idComercio)
+        public async Task<bool> UpdatetPedido(Pedido pedido)
         {
             var db = dbConnection();
 
@@ -90,7 +90,7 @@ namespace PedidoYa.Data.Repositories
                              estado=@Estado
                         where idPedido = @IdPedido";
 
-            var result = await db.ExecuteAsync(sql, new { IdComercio = idComercio, pedido.descripcion, pedido.direccion, pedido.comentarios, pedido.estado, IdPedido = pedido.idPedido });
+            var result = await db.ExecuteAsync(sql, new { pedido.idComercio, pedido.descripcion, pedido.direccion, pedido.comentarios, pedido.estado, IdPedido = pedido.idPedido });
             return result > 0;
         }
         public async Task<bool> DeletePedido(Pedido pedido)

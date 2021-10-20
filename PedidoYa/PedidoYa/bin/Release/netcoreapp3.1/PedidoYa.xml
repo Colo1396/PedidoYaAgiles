@@ -75,20 +75,18 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:PedidoYa.Controllers.PedidoController.InsertPedido(System.Int32,PedidoYa.Model.Pedido)">
+        <member name="M:PedidoYa.Controllers.PedidoController.InsertPedido(PedidoYa.Model.Pedido)">
             <summary>
             Crear un nuevo Pedido
             </summary>
             <param name="pedido"></param>
-            <param name="idComercio"></param>
             <returns></returns>
         </member>
-        <member name="M:PedidoYa.Controllers.PedidoController.UpdatetPedido(PedidoYa.Model.Pedido,System.Int32)">
+        <member name="M:PedidoYa.Controllers.PedidoController.UpdatetPedido(PedidoYa.Model.Pedido)">
             <summary>
-            Actualizar el Pedido con id y comercio:
+            Actualizar el Pedido :
             </summary>
             <param name="pedido"></param>
-            <param name="idComercio"></param>
             <returns></returns>
         </member>
         <member name="M:PedidoYa.Controllers.PedidoController.UpdatetEstadoPedido(PedidoYa.Model.Pedido,System.String)">
