@@ -40,7 +40,18 @@ namespace PedidoYa.Controllers
         {
             return Ok(await _pedidoRepository.GetPedidoForId(id));
         }
-        
+
+        /// <summary>
+        /// Traer el Pedidos con idComercio igual a:
+        /// </summary>
+        /// <param name="idComercio"></param>
+        /// <returns></returns>
+        [HttpGet("poridComercio/{idComercio}")]
+        public List<Pedido> GetPedidoForIdCmercio(int idComercio)
+        {
+            return _pedidoRepository.GetPedidoForIdCmercio(idComercio);
+        }
+
         /// <summary>
         /// Crear un nuevo Pedido
         /// </summary>
