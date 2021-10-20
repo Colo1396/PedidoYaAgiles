@@ -40,7 +40,18 @@ namespace PedidoYa.Controllers
         {
             return Ok(await _pedidoRepository.GetPedidoForId(id));
         }
-        
+
+        /// <summary>
+        /// Traer los Pedidos con id de comercio
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("PedidosXComercio/{idComercio}")]
+        public async Task<IActionResult> PedidosXComercio(int idComercio)
+        {
+            return Ok(await _pedidoRepository.PedidosXComercio(idComercio));
+        }
+
         /// <summary>
         /// Crear un nuevo Pedido
         /// </summary>

@@ -42,6 +42,18 @@ namespace PedidoYa.Data.Repositories
             return await db.QueryFirstOrDefaultAsync<Pedido>(sql, new { IdPedido = idPedido });
 
         }
+        
+        public async Task<Pedido> PedidosXComercio(int idComercio)
+        {
+            var db = dbConnection();
+
+            var sql = @"select  distinct p.*
+                        FROM pedido p
+                        where p.idComercio = @IdComercio";
+
+            return await db.QueryFirstOrDefaultAsync<Pedido>(sql, new { IdComercio = idComercio });
+
+        }
 
         public async Task<bool> InsertPedido(Pedido pedido, int idComercio)
         {
