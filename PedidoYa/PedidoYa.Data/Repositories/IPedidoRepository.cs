@@ -12,7 +12,7 @@ namespace PedidoYa.Data.Repositories
         List<Pedido> GetAllPedido();
         Task<Pedido> GetPedidoForId(int idPedido);
         Task<Pedido> PedidosXComercio(int idComercio);
-        Task<bool> InsertPedido(Pedido pedido);
+        int InsertPedido(Pedido pedido);
         Task<bool> UpdatetPedido(Pedido pedido);
         Task<bool> UpdatetEstadoPedido(Pedido pedido, string estado);
         Task<bool> DeletePedido(Pedido pedido);

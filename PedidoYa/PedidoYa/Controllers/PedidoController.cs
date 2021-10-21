@@ -58,16 +58,16 @@ namespace PedidoYa.Controllers
         /// <param name="pedido"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> InsertPedido( [FromBody] Pedido pedido)
+        public IActionResult InsertPedido( [FromBody] Pedido pedido)
         {
             if (pedido == null)
                 return BadRequest();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var created = await _pedidoRepository.InsertPedido(pedido);
+            var createdId = _pedidoRepository.InsertPedido(pedido);
 
-            return Created("created", created);
+            return Created("created", createdId);
         }
 
         
