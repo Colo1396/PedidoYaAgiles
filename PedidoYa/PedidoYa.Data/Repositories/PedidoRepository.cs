@@ -42,16 +42,27 @@ namespace PedidoYa.Data.Repositories
             return await db.QueryFirstOrDefaultAsync<Pedido>(sql, new { IdPedido = idPedido });
 
         }
+        
+        public List<Pedido> PedidosXComercio(int idComercio)
+        {
+            var db = dbConnection();
 
-        public async Task<bool> InsertPedido(Pedido pedido)
+            var sql = @"select  distinct p.*
+                        FROM pedido p
+                        where p.idComercio = @IdComercio";
+
+            return db.Query<Pedido>(sql, new { IdComercio = idComercio }).ToList();
+        }
+
+        public int InsertPedido(Pedido pedido)
         {
             var db = dbConnection();
 
             var sql = @"insert into pedido (idComercio, descripcion, direccion, comentarios, estado) 
-                        values (@IdComercio,@Descripcion,@Direccion,@Comentarios,@Estado)";
+                        values (@IdComercio,@Descripcion,@Direccion,@Comentarios,@Estado); select LAST_INSERT_ID();";
 
-            var result = await db.ExecuteAsync(sql, new { pedido.idComercio, pedido.descripcion, pedido.direccion, pedido.comentarios, pedido.estado});
-            return result > 0;
+            var result = db.ExecuteScalar<int>(sql, new { pedido.idComercio, pedido.descripcion, pedido.direccion, pedido.comentarios, pedido.estado});
+            return result;
         }
 
         public async Task<bool> UpdatetEstadoPedido(Pedido pedido, string estado)

@@ -75,6 +75,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:PedidoYa.Controllers.PedidoController.PedidosXComercio(System.Int32)">
+            <summary>
+            Traer los Pedidos con id de comercio
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:PedidoYa.Controllers.PedidoController.InsertPedido(PedidoYa.Model.Pedido)">
             <summary>
             Crear un nuevo Pedido
