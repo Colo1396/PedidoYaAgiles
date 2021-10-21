@@ -17,5 +17,7 @@ namespace PedidoYa.Data.Repositories
         List<Comercio> GetAllComerciosXLocalidadxCategoria(string localidad, int idCategoria);
         List<Comercio> GetAllComerciosXProducto(string localidad, string nombreProducto);
         Comercio GetComercioXIdUsuario(int idUsuario);
+
+
     }
 }

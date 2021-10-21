@@ -22,5 +22,6 @@ namespace PedidoYa.Model
         public double costoEnvio { get; set; }
         public string horario { get; set; }
         public string diasAbierto { get; set; }
+        public double promCalificacion { get; set; }
     }
 }

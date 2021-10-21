@@ -40,7 +40,7 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion, costoEnvio, horario, diasAbierto from comercio";
+            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion, costoEnvio, horario, diasAbierto,promCalificacion from comercio order by promCalificacion desc";
 
             return await db.QueryAsync<Comercio>(sql, new { });
         }
@@ -53,7 +53,7 @@ namespace PedidoYa.Data.Repositories
             filters += "and cxc.idCategoria = @IdCategoria";
 
             string sql = $@"select distinct c.* from comercio c left join comercioxcategoria cxc on c.idComercio = cxc.idComercio
-                        where localidad = @Localidad {filters}";
+                        where localidad = @Localidad {filters} order by promCalificacion desc";
 
             return db.Query<Comercio>(sql, new { Localidad = localidad, IdCategoria = idCategoria }).ToList();
         }
@@ -64,7 +64,7 @@ namespace PedidoYa.Data.Repositories
 
             string sql = $@"select distinct c.* from comercio c
                             inner join producto p on p.idComercio = c.idComercio
-                            where c.localidad = @Localidad and p.nombre LIKE '%" + nombreProducto + "%'";
+                            where c.localidad = @Localidad and p.nombre LIKE '%" + nombreProducto + "%' order by promCalificacion desc";
 
             return db.Query<Comercio>(sql, new { Localidad = localidad, NombreProducto = nombreProducto }).ToList();
         }
@@ -73,7 +73,7 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion, costoEnvio, horario, diasAbierto from comercio
+            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion, costoEnvio, horario, diasAbierto,promCalificacion from comercio
                         where idComercio = @IdComercio";
 
             Comercio comercio = db.QueryFirstOrDefault<Comercio>(sql, new { IdComercio = idComercio });
@@ -89,8 +89,8 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"insert into comercio (nombre, direccion, localidad, telefono, calificacion, logo,descripcion,idUsuario, costoEnvio, horario, diasAbierto) 
-                        values (@Nombre,@Direccion,@Localidad,@Telefono,@Calificacion,@Logo,@Descripcion,@IdUsuario, @CostoEnvio, @Horario, @DiasAbierto); select LAST_INSERT_ID();";
+            var sql = @"insert into comercio (nombre, direccion, localidad, telefono, calificacion, logo,descripcion,idUsuario, costoEnvio, horario, diasAbierto,promCalificacion) 
+                        values (@Nombre,@Direccion,@Localidad,@Telefono,@Calificacion,@Logo,@Descripcion,@IdUsuario, @CostoEnvio, @Horario, @DiasAbierto,0); select LAST_INSERT_ID();";
 
             int result = db.ExecuteScalar<int>(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo,comercio.descripcion, IdUsuario=comercio.usuario.id,comercio.costoEnvio,comercio.horario,comercio.diasAbierto });
             if (result > 0) {
@@ -120,10 +120,11 @@ namespace PedidoYa.Data.Repositories
                              descripcion=@Descripcion,
                              costoEnvio=@CostoEnvio, 
                              horario=@Horario, 
-                             diasAbierto=@DiasAbierto
+                             diasAbierto=@DiasAbierto,
+                             promCalificacion=@PromCalificacion  
                         where idComercio = @IdComercio";
 
-            var result = db.Execute(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo, comercio.descripcion ,comercio.idComercio, comercio.costoEnvio, comercio.horario, comercio.diasAbierto });
+            var result = db.Execute(sql, new { comercio.nombre, comercio.direccion, comercio.localidad, comercio.telefono, comercio.calificacion, comercio.logo, comercio.descripcion ,comercio.idComercio, comercio.costoEnvio, comercio.horario, comercio.diasAbierto ,comercio.promCalificacion});
             if (result > 0)
             {
                 sql = @"delete from comercioxcategoria where idComercio = @IdComercio";
@@ -141,8 +142,8 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion, costoEnvio, horario, diasAbierto from comercio
-                        where idUsuario = @IdUsuario";
+            var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion, costoEnvio, horario, diasAbierto,promCalificacion from comercio
+                        where idUsuario = @IdUsuario order by promCalificacion desc";
 
            /* var sql = @"select idComercio, nombre, direccion, localidad, telefono, calificacion, logo,descripcion from comercio c
                             inner join usuario u  on u.id = c.idUsuario                      
@@ -155,5 +156,7 @@ namespace PedidoYa.Data.Repositories
             return comercio;
             
         }
+
+
     }
 }

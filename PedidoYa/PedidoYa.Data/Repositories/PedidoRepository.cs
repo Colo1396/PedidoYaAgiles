@@ -28,7 +28,7 @@ namespace PedidoYa.Data.Repositories
         public List<Pedido> GetAllPedido()
         {
             var db = dbConnection();
-            var sql = @"SELECT idpedido, idComercio, descripcion, direccion, comentarios, estado FROM pedido";
+            var sql = @"SELECT idpedido, idComercio, descripcion, direccion, comentarios, estado,calificacion FROM pedido";
             return db.Query<Pedido>(sql, new { }).ToList();
         }
 
@@ -36,7 +36,7 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"select idpedido, idComercio, descripcion, direccion, comentarios, estado FROM pedido
+            var sql = @"select idpedido, idComercio, descripcion, direccion, comentarios, estado,calificacion FROM pedido
                         where idPedido = @IdPedido";
 
             return await db.QueryFirstOrDefaultAsync<Pedido>(sql, new { IdPedido = idPedido });
@@ -58,8 +58,8 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"insert into pedido (idComercio, descripcion, direccion, comentarios, estado) 
-                        values (@IdComercio,@Descripcion,@Direccion,@Comentarios,@Estado); select LAST_INSERT_ID();";
+            var sql = @"insert into pedido (idComercio, descripcion, direccion, comentarios, estado,calificacion) 
+                        values (@IdComercio,@Descripcion,@Direccion,@Comentarios,@Estado,0); select LAST_INSERT_ID();";
 
             var result = db.ExecuteScalar<int>(sql, new { pedido.idComercio, pedido.descripcion, pedido.direccion, pedido.comentarios, pedido.estado});
             return result;
@@ -86,10 +86,11 @@ namespace PedidoYa.Data.Repositories
                              descripcion= @Descripcion,
                              direccion=@Direccion,
                              comentarios=@Comentarios,
-                             estado=@Estado
+                             estado=@Estado,
+                            calificacion=@Calificacion
                         where idPedido = @IdPedido";
 
-            var result = await db.ExecuteAsync(sql, new { pedido.idComercio, pedido.descripcion, pedido.direccion, pedido.comentarios, pedido.estado, IdPedido = pedido.idPedido });
+            var result = await db.ExecuteAsync(sql, new { pedido.idComercio, pedido.descripcion, pedido.direccion, pedido.comentarios, pedido.estado, IdPedido = pedido.idPedido,pedido.calificacion });
             return result > 0;
         }
         public async Task<bool> DeletePedido(Pedido pedido)
@@ -103,5 +104,20 @@ namespace PedidoYa.Data.Repositories
             var result = await db.ExecuteAsync(sql, new { IdPedido = pedido.idPedido });
             return result > 0;
         }
+
+        public bool UpdatePromedioCalificacionComercio(int idComercio)
+        {
+            var db = dbConnection();
+
+            var sql = @"update comercio c 
+                        inner join (select case when count(*)=0 then 0 else  cast(sum(calificacion)/count(*)  as decimal(15,1))  end promCalif,idComercio from pedido group by idComercio) calif
+                        on calif.idComercio= c.idComercio
+                        set c.promCalificacion=calif.promCalif
+                        where c.idComercio=@IdComercio";
+
+            var result = db.Execute(sql, new { IdComercio = idComercio });
+            return result > 0;
+        }
+
     }
 }

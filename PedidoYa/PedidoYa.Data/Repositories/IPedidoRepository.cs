@@ -17,5 +17,7 @@ namespace PedidoYa.Data.Repositories
         Task<bool> UpdatetEstadoPedido(Pedido pedido, string estado);
         Task<bool> DeletePedido(Pedido pedido);
 
+        bool UpdatePromedioCalificacionComercio(int idComercio);
+
     }
 }

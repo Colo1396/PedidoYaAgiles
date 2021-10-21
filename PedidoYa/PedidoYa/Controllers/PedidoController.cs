@@ -86,6 +86,8 @@ namespace PedidoYa.Controllers
 
             await _pedidoRepository.UpdatetPedido(pedido);
 
+             _pedidoRepository.UpdatePromedioCalificacionComercio(pedido.idComercio);
+
             return NoContent();
         }
        
