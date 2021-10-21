@@ -43,7 +43,7 @@ namespace PedidoYa.Data.Repositories
 
         }
         
-        public async Task<Pedido> PedidosXComercio(int idComercio)
+        public List<Pedido> PedidosXComercio(int idComercio)
         {
             var db = dbConnection();
 
@@ -51,8 +51,7 @@ namespace PedidoYa.Data.Repositories
                         FROM pedido p
                         where p.idComercio = @IdComercio";
 
-            return await db.QueryFirstOrDefaultAsync<Pedido>(sql, new { IdComercio = idComercio });
-
+            return db.Query<Pedido>(sql, new { IdComercio = idComercio }).ToList();
         }
 
         public int InsertPedido(Pedido pedido)

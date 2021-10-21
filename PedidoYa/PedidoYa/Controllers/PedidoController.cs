@@ -49,7 +49,7 @@ namespace PedidoYa.Controllers
         [HttpGet("PedidosXComercio/{idComercio}")]
         public async Task<IActionResult> PedidosXComercio(int idComercio)
         {
-            return Ok(await _pedidoRepository.PedidosXComercio(idComercio));
+            return Ok(_pedidoRepository.PedidosXComercio(idComercio));
         }
 
         /// <summary>

@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\Enzord\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Enzord\\.nuget\\packages"
+      "C:\\Users\\Nicolas\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Nicolas\\.nuget\\packages"
     ]
   }
 }

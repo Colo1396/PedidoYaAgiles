@@ -11,7 +11,7 @@ namespace PedidoYa.Data.Repositories
     {
         List<Pedido> GetAllPedido();
         Task<Pedido> GetPedidoForId(int idPedido);
-        Task<Pedido> PedidosXComercio(int idComercio);
+        List<Pedido> PedidosXComercio(int idComercio);
         int InsertPedido(Pedido pedido);
         Task<bool> UpdatetPedido(Pedido pedido);
         Task<bool> UpdatetEstadoPedido(Pedido pedido, string estado);
