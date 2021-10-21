@@ -10,7 +10,6 @@ namespace PedidoYa.Data.Repositories
     public interface IPedidoRepository
     {
         List<Pedido> GetAllPedido();
-        List<Pedido> GetPedidoForIdCmercio(int idComercio);
         Task<Pedido> GetPedidoForId(int idPedido);
         Task<bool> InsertPedido(Pedido pedido);
         Task<bool> UpdatetPedido(Pedido pedido);

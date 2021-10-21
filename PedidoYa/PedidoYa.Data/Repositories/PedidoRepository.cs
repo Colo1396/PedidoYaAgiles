@@ -92,13 +92,5 @@ namespace PedidoYa.Data.Repositories
             var result = await db.ExecuteAsync(sql, new { IdPedido = pedido.idPedido });
             return result > 0;
         }
-
-        public List<Pedido> GetPedidoForIdCmercio(int idComercio)
-        {
-            var db = dbConnection();
-            var sql = @"select idpedido, idComercio, descripcion, direccion, comentarios, estado FROM pedido
-                        where idComercio = @IdComercio";
-            return db.Query<Pedido>(sql, new { IdComercio = idComercio }).ToList();
-        }
     }
 }
