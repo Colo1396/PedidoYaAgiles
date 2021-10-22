@@ -62,6 +62,55 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:PedidoYa.Controllers.PedidoController.GetAllPedido">
+            <summary>
+            Traer todos los Pedidos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.PedidoController.GetPedidoForId(System.Int32)">
+            <summary>
+            Traer el Pedidos con id igual a:
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.PedidoController.PedidosXComercio(System.Int32)">
+            <summary>
+            Traer los Pedidos con id de comercio
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.PedidoController.InsertPedido(PedidoYa.Model.Pedido)">
+            <summary>
+            Crear un nuevo Pedido
+            </summary>
+            <param name="pedido"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.PedidoController.UpdatetPedido(PedidoYa.Model.Pedido)">
+            <summary>
+            Actualizar el Pedido :
+            </summary>
+            <param name="pedido"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.PedidoController.UpdatetEstadoPedido(PedidoYa.Model.Pedido,System.String)">
+            <summary>
+            Actualizar el Pedido con id y estado:
+            </summary>
+            <param name="pedido"></param>
+            <param name="estado"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PedidoYa.Controllers.PedidoController.DeletePedido(System.Int32)">
+            <summary>
+            Borrar el Pedido con id:
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:PedidoYa.Controllers.ProductoController.GetAllProductos">
             <summary>
             Traer todos los Producto
