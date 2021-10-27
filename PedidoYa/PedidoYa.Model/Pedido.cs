@@ -16,6 +16,6 @@ namespace PedidoYa.Model
         public int idComercio { get; set; }
         public int calificacion { get; set; }
 
-
+        public DateTime fechaHoraPedido { get; set; }
     }
 }

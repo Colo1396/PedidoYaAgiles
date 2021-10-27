@@ -28,7 +28,7 @@ namespace PedidoYa.Data.Repositories
         public List<Pedido> GetAllPedido()
         {
             var db = dbConnection();
-            var sql = @"SELECT idpedido, idComercio, descripcion, direccion, comentarios, estado,calificacion FROM pedido";
+            var sql = @"SELECT p.* FROM pedido p";
             return db.Query<Pedido>(sql, new { }).ToList();
         }
 
@@ -36,7 +36,7 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"select idpedido, idComercio, descripcion, direccion, comentarios, estado,calificacion FROM pedido
+            var sql = @"select p.* FROM pedido p
                         where idPedido = @IdPedido";
 
             return await db.QueryFirstOrDefaultAsync<Pedido>(sql, new { IdPedido = idPedido });
@@ -47,7 +47,7 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"select  distinct p.*
+            var sql = @"select  p.*
                         FROM pedido p
                         where p.idComercio = @IdComercio";
 
@@ -58,8 +58,8 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"insert into pedido (idComercio, descripcion, direccion, comentarios, estado,calificacion) 
-                        values (@IdComercio,@Descripcion,@Direccion,@Comentarios,@Estado,0); select LAST_INSERT_ID();";
+            var sql = @"insert into pedido (idComercio, descripcion, direccion, comentarios, estado,calificacion,fechaHoraPedido) 
+                        values (@IdComercio,@Descripcion,@Direccion,@Comentarios,@Estado,0,now()); select LAST_INSERT_ID();";
 
             var result = db.ExecuteScalar<int>(sql, new { pedido.idComercio, pedido.descripcion, pedido.direccion, pedido.comentarios, pedido.estado});
             return result;
