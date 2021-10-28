@@ -17,5 +17,6 @@ namespace PedidoYa.Model
         public int calificacion { get; set; }
 
         public DateTime fechaHoraPedido { get; set; }
+        public string opinion { get; set; }
     }
 }

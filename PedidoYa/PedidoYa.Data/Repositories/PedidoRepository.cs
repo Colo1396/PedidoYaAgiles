@@ -58,8 +58,8 @@ namespace PedidoYa.Data.Repositories
         {
             var db = dbConnection();
 
-            var sql = @"insert into pedido (idComercio, descripcion, direccion, comentarios, estado,calificacion,fechaHoraPedido) 
-                        values (@IdComercio,@Descripcion,@Direccion,@Comentarios,@Estado,0,DATE_SUB(now(), INTERVAL 3 HOUR)); select LAST_INSERT_ID();";
+            var sql = @"insert into pedido (idComercio, descripcion, direccion, comentarios, estado,calificacion,fechaHoraPedido,opinion) 
+                        values (@IdComercio,@Descripcion,@Direccion,@Comentarios,@Estado,0,DATE_SUB(now(), INTERVAL 3 HOUR),''); select LAST_INSERT_ID();";
 
             var result = db.ExecuteScalar<int>(sql, new { pedido.idComercio, pedido.descripcion, pedido.direccion, pedido.comentarios, pedido.estado});
             return result;
@@ -87,10 +87,11 @@ namespace PedidoYa.Data.Repositories
                              direccion=@Direccion,
                              comentarios=@Comentarios,
                              estado=@Estado,
-                            calificacion=@Calificacion
+                            calificacion=@Calificacion,
+                            opinion=@Opinion
                         where idPedido = @IdPedido";    
 
-            var result = await db.ExecuteAsync(sql, new { pedido.idComercio, pedido.descripcion, pedido.direccion, pedido.comentarios, pedido.estado, IdPedido = pedido.idPedido,pedido.calificacion });
+            var result = await db.ExecuteAsync(sql, new { pedido.idComercio, pedido.descripcion, pedido.direccion, pedido.comentarios, pedido.estado, IdPedido = pedido.idPedido,pedido.calificacion,pedido.opinion });
             return result > 0;
         }
         public async Task<bool> DeletePedido(Pedido pedido)
