@@ -32,7 +32,7 @@ namespace PedidoYa
             var mySQLConnectionConfig = new Data.MySQLConfiguration(Configuration.GetConnectionString("MySqlConnection"));
             services.AddSingleton(mySQLConnectionConfig);
 
-            services.AddScoped<IAutoRepository, AutoRepository>();
+            //services.AddScoped<IAutoRepository, AutoRepository>();
             services.AddScoped<IComercioRepository, ComercioRepository>();
             services.AddScoped<IProductoRepository, ProductoRepository>();
             services.AddScoped<ILocalidadRepository, LocalidadRepository>();
